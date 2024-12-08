@@ -15,7 +15,7 @@
 - Dark mode
 - Smooth animations
 
-## How to run the project locally (I recommend visiting it on https://brunogg.in)
+## How to run the project locally (I recommend visiting it on https://wave.brunogg.in)
 1. Clone the repository
 2. Run **npm install**
     ```bash
