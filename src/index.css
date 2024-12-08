@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'Saved by Zero';
+    src: url('./assets/fonts/saved_by_zero_font.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ----------------------------------------
+   Tailwind CSS Setup
+---------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------------
+   Global Styles
+---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* ----------------------------------------
+   Component Styles
+---------------------------------------- */
+@layer components {
+}
+
+/* ----------------------------------------
+   Utility Classes
+---------------------------------------- */
+@layer utilities {
+  /* Padding Utilities */
+  .padding {
+    @apply sm:py-12 py-6;
+  }
+  .heading{
+    @apply flex flex-col items-center justify-center pb-10 px-10 transition-all hover:scale-110 hover:brightness-110;
+  }
+  .headingText{
+    @apply text-2xl sm:text-4xl lg:text-6xl font-bold;
+  }
+
+  /* Text Utilities */
+  /* Neon Effects */
+  .neon-blue {
+    color: #5fc5bc;
+    text-shadow: 0 0 3px #5dc5bc, 0 0 8px #5dc5bc;
+  }
+
+  .neon-orange {
+    color: #fc9170;
+    text-shadow: 0 0 4px #fc9170, 0 0 8px #fc9170;
+  }
+
+  .neon-white {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 8px #ffffff;
+  }
+
+  .neon-wisteria {
+    color: #CB9CF2;
+    text-shadow: 0 0 5px #CB9CF2, 0 0 8px #CB9CF2;
+  }
+
+  /* Blur Effects */
+}
+
+/* ----------------------------------------
+   Animations
+---------------------------------------- */
+
+/* Rise-Up Animation */
+.rise-up {
+  opacity: 0;
+  visibility: hidden;
+  animation: rise-up 1s ease-out forwards;
+}
+
+@keyframes rise-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Rise-Down Animation */
+.rise-down {
+  opacity: 0;
+  visibility: hidden;
+  animation: rise-down 1s ease-out forwards;
+}
+
+@keyframes rise-down {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Blur-In Animation */
+.blur-in {
+  animation: blur-in 1s ease-out forwards;
+}
+
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Loop Scroll Animation */
+@keyframes loop-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+/* ----------------------------------------
+   Continuous Scrolling
+---------------------------------------- */
+.scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: scroll-animation 20s linear infinite;
+}
+
+.scroll-container img {
+  margin-right: 3rem;
+}
+
+@keyframes scroll-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+
+
+
