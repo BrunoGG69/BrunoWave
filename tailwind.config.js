@@ -6,9 +6,6 @@ module.exports = {
       fontFamily: {
         'saved-by-zero': ['"Saved by Zero"', 'sans-serif'], // Add the font here
       },
-      backgroundImage: {
-        'hero-bg': "url('src/assets/bg.png')"  // Replace with your actual image path
-      }
     },
   },
   plugins: [],
