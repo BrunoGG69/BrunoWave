@@ -1,6 +1,6 @@
 # BrunoWave -  The Sound You Have Never Heard Before
 
-### This is my personal portfolio website. Visit it on https://wave.brunogg.in
+### This is a Mock Music Service Landing Page. Visit it on https://wave.brunogg.in
 
 ## Technologies used:
 - HTML
