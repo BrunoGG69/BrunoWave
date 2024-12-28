@@ -1,10 +1,10 @@
-import profilePic from "../assets/profilePic-noBackground.png";
-import audioVisualizer from "../assets/audiovisualiser.svg";
-import musicPlayer from "../assets/musicplayer.svg";
 import { motion } from "motion/react";
-import { heroContent } from "../constants";
+import profilePic from "../assets/profilePic-noBackground.png";
+import img from "../assets/img.png";
+import CustomButtonBlue from "../components/CustomButtonBlue.jsx";
+import { heroContent } from "../constants/index.js";
 
-const Hero = () => {
+const NewHero = () => {
     return (
         <section
             id="heroSection"
@@ -16,14 +16,12 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
             >
-
                 <div className="flex flex-col sm:flex-row items-center justify-center mb-8">
-
                     <motion.div
                         className="mb-4 sm:mb-0 sm:mr-4 flex-shrink-0 relative z-10"
-                        initial={{ y: -50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }}
+                        initial={{y: -50, opacity: 0}}
+                        animate={{y: 0, opacity: 1}}
+                        transition={{duration: 1, delay: 0.3}}
                     >
                         <img
                             src={profilePic}
@@ -33,10 +31,10 @@ const Hero = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative z-10 "
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.5 }}
+                        className="relative z-10"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{duration: 1, delay: 0.5}}
                     >
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#f48e6c] space-x-4 transition-all hover:scale-110 hover:brightness-110 font-saved-by-zero">
                             {heroContent.title}
@@ -44,30 +42,30 @@ const Hero = () => {
                         <p className="text-xl mt-2 text-[#5fcbbc] transition-all hover:scale-110 hover:brightness-110">
                             {heroContent.subtitle}
                         </p>
+                        <div className="mt-6">
+                            <CustomButtonBlue
+                                href="/play"
+                                label="Go and Try It"
+                                colorClass="bg-[#5ec6bb]"
+                            />
+                        </div>
                     </motion.div>
+
+
                 </div>
 
-                <motion.div
-                    className="relative flex justify-center mt-8 w-full z-20"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.7 }}
-                >
-                    <img
-                        src={audioVisualizer}
-                        alt="Audio Visualizer"
-                        className="w-full h-auto object-cover z-20"
-                    />
+                <div className="mockup-browser bg-base-300 border w-full max-w-4xl mx-auto">
+                    <div className="mockup-browser-toolbar">
+                        <div className="input">https://wave.brunogg.in/play</div>
+                    </div>
+                    <div className="bg-base-200 flex justify-center items-center w-full h-[400px] sm:h-[500px] md:h-[600px]">
+                        <img src={img} alt="Display" className="w-full h-full object-cover" />
+                    </div>
+                </div>
 
-                    <img
-                        src={musicPlayer}
-                        alt="Music Player"
-                        className="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] sm:w-[65%] md:w-[50%] lg:w-[45%] xl:w-[30%] h-auto transition-all hover:scale-110 hover:brightness-110"
-                    />
-                </motion.div>
             </motion.div>
         </section>
     );
 };
 
-export default Hero;
+export default NewHero;

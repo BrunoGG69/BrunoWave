@@ -1,21 +1,15 @@
-import Hero from "./sections/Hero.jsx";
-import About from "./sections/About.jsx";
-import Navbar from "./sections/Navbar.jsx";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Music from "./pages/Music";
 
 function App() {
     return (
-        <main className="relative bg-black font-jetbrains overflow-hidden">
-            <Navbar/>
-            <div className="padding">
-                <Hero/>
-            </div>
-            <div className="padding">
-                <About/>
-            </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/play" element={<Music />} />
 
-        </main>
+        </Routes>
     );
 }
 
 export default App;
-
