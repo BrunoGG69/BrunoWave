@@ -37,5 +37,23 @@ export const songs = [
         description: "The song straight from hell.",
         url: "https://youtu.be/At8v_Yc044Y",
     },
-
 ];
+
+export const features = [
+    {
+        id: 1,
+        title: "Endless Songs (Yes, Seriously)",
+        description: "We've got songs for days. From the viral Skibidi Toilet anthem to the head-banging Thick of It, our collection is so massive even your playlist will get tired!"
+    },
+    {
+        id: 2,
+        title: "Only for the Cool Kids (Platform Exclusive)",
+        description: "We’ve teamed up with artists for some *next level* collabs. You won’t find this exclusive content anywhere else—trust us, your ears will thank us!"
+    },
+    {
+        id: 3,
+        title: "Eargasm (and Insurance)",
+        description: "Our beats are so fire, your ears might need therapy. Don't worry though, we offer ear insurance so you can vibe with us 24/7. No excuses!"
+    }
+];
+
