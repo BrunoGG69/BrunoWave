@@ -52,13 +52,14 @@
 
   .neon-orange {
     color: #fc9170;
-    text-shadow: 0 0 4px #fc9170, 0 0 8px #fc9170;
+    text-shadow: 0 0 5px #fc9170, 0 0 5px #fc9170;
   }
 
   .neon-white {
     color: #ffffff;
-    text-shadow: 0 0 5px #ffffff, 0 0 8px #ffffff;
+    text-shadow: 0 0 4px #ffffff, 0 0 7px #ffffff;
   }
+
 
   .neon-wisteria {
     color: #CB9CF2;

@@ -1,6 +1,6 @@
 # BrunoWave -  The Sound You Have Never Heard Before
 
-### This is a Mock Music Service Landing Page. Visit it on https://wave.brunogg.in
+### This is a Music Service I am working on. It features a unique and stylish UI. Visit it on https://wave.brunogg.in/play
 
 ## Technologies used:
 - HTML
@@ -16,7 +16,7 @@
 - Dark mode
 - Smooth animations
 
-## How to run the project locally (I recommend visiting it on https://wave.brunogg.in)
+## How to run the project locally (I recommend visiting it on https://wave.brunogg.in/play)
 1. Clone the repository
 2. Run **npm install**
     ```bash
