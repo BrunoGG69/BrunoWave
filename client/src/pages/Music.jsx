@@ -39,7 +39,6 @@ const Music = () => {
 
     const handleTrackSelection = (index) => {
         setTrackDaSongThatPlaying(index);
-        togglePlay()
     };
 
     return (
