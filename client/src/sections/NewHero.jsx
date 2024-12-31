@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import profilePic from "../assets/profilePic-noBackground.png";
 import img from "../assets/img.png";
 import CustomButtonBlue from "../components/CustomButtonBlue.jsx";
-import { heroContent } from "../constants/index.js";
 
 const NewHero = () => {
     return (
@@ -37,10 +36,10 @@ const NewHero = () => {
                         transition={{duration: 1, delay: 0.5}}
                     >
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#f48e6c] space-x-4 transition-all hover:scale-110 hover:brightness-110 font-saved-by-zero">
-                            {heroContent.title}
+                            BrunoWave
                         </h1>
                         <p className="text-xl mt-2 text-[#5fcbbc] transition-all hover:scale-110 hover:brightness-110">
-                            {heroContent.subtitle}
+                            The Sound You Have Never Heard Before
                         </p>
                         <div className="mt-6">
                             <CustomButtonBlue
