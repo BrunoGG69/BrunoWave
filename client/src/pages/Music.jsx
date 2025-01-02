@@ -3,7 +3,16 @@ import { titles } from '../constants/titles.js'; // This stores all the songs wi
 import { useSearchForASong } from '../hooks/searchForASong.js'; // Importing the search functionality for the songs
 import { useState } from 'react'; // Importing the useState hook
 
+import {
+    NextButton,
+    PlayPauseButton,
+    PreviousButton, ProgressBar,
+    SkipBackwardButton,
+    SkipForwardButton
+} from "../components/MusicComponents.jsx";
+
 const Music = () => {
+    // Importing the logic for the audio player
     const {
         trackDaSongThatPlaying,
         setTrackDaSongThatPlaying,
@@ -65,7 +74,7 @@ const Music = () => {
                 <div className="fixed top-0 left-0 w-full z-50">
                     <label
                         htmlFor="my-drawer"
-                        className={`absolute top-4 left-4 flex items-center gap-2 p-3 border-2 border-black bg-[${currentTrack.colorCode}] text-black rounded-full hover:bg-opacity-90 transition-colors drawer-button`}
+                        className={`absolute top-4 left-4 flex items-center gap-3 p-3 border-2 border-black bg-[${currentTrack.colorCode}] text-black rounded-full hover:bg-opacity-60 transition-colors drawer-button`}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +97,7 @@ const Music = () => {
                 <img
                     src={currentTrack.image}
                     alt=""
-                    className={`absolute h-screen w-screen bg-full bg-bottom`}
+                    className={`absolute h-full w-full object-cover object-bottom`}
                 />
                 <div className={`absolute inset-0 flex items-center justify-center ${currentTrack.color}`}>
                     <div
@@ -110,88 +119,25 @@ const Music = () => {
                                 {currentTrack.title.toUpperCase()}
                             </h1>
 
+                            {/*Buttons*/}
                             <div className="flex justify-center items-center space-x-2 md:space-x-4 mb-4">
-                                <button
-                                    onClick={goToPreviousTrack}
-                                    className={`${currentTrack.color} hover:text-white transition-colors`}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8"
-                                         fill="none"
-                                         viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M12.067 11.2a1 1 0 000 1.6l5.333 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4z"/>
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={() => skipTime(-10)}
-                                    className={`${currentTrack.color} hover:text-white transition-colors`}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8"
-                                         fill="none"
-                                         viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"/>
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={togglePlay}
-                                    className={`${currentTrack.color} hover:text-white transition-colors`}
-                                >
-                                    {IsItPlayingDaSong ? (
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-12 md:w-12"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                  d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                        </svg>
-                                    ) : (
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-12 md:w-12"
-                                             fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                        </svg>
-                                    )}
-                                </button>
-                                <button
-                                    onClick={() => skipTime(10)}
-                                    className={`${currentTrack.color} hover:text-white transition-colors`}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8"
-                                         fill="none"
-                                         viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"/>
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={goToNextTrack}
-                                    className={`${currentTrack.color} hover:text-white transition-colors`}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8"
-                                         fill="none"
-                                         viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4z"/>
-                                    </svg>
-                                </button>
+                                <PreviousButton onClick={goToPreviousTrack} color={currentTrack.color} />
+                                <SkipBackwardButton onClick={() => skipTime(-10)} color={currentTrack.color} />
+                                <PlayPauseButton onClick={togglePlay} color={currentTrack.color} isItPlaying={IsItPlayingDaSong} />
+                                <SkipForwardButton onClick={() => skipTime(10)} color={currentTrack.color} />
+                                <NextButton onClick={goToNextTrack} color={currentTrack.color} />
                             </div>
 
                             {/* Progress Bar */}
                             <div className={`relative w-full h-2 bg-white/20 rounded-full`}>
-                                <div
-                                    className={`absolute left-0 top-0 h-full ${currentTrack.bgColor} rounded-full`}
-                                    style={{width: `${progress}%`}}
-                                />
+                                <ProgressBar ProgressOfAudio={progress} color={currentTrack.bgColor} />
                             </div>
                             <div className="flex justify-between text-sm text-white/60 mt-2">
                                 <span>{currentTime}</span>
                                 <span>{duration}</span>
                             </div>
 
-                            {/* All the available songs. Not Much but its something ig */}
+                            {/* All the available songs. Not Much but it is something ig */}
                             <div className="mt-6">
                                 <h3 className="text-lg font-bold text-white mb-2">Available Songs</h3>
                                 <ul className="space-y-2 max-h-[18rem] overflow-y-auto">
