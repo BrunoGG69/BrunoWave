@@ -1,10 +1,12 @@
-import { useState } from "react";
-import audioPlayerLogic from "../hooks/audioPlayerLogic.js";
-import {titles} from '../constants/titles.js';
+import audioPlayerLogic from "../hooks/audioPlayerLogic.js"; // Importing the logic for audio player
+import { titles } from '../constants/titles.js'; // This stores all the songs with their details
+import { useSearchForASong } from '../hooks/searchForASong.js'; // Importing the search functionality for the songs
+import { useState } from 'react'; // Importing the useState hook
 
 const Music = () => {
     const {
         trackDaSongThatPlaying,
+        setTrackDaSongThatPlaying,
         IsItPlayingDaSong,
         progress,
         currentTime,
@@ -13,37 +15,52 @@ const Music = () => {
         goToPreviousTrack,
         goToNextTrack,
         skipTime,
-        setTrackDaSongThatPlaying,
+        playZaTrack,
     } = audioPlayerLogic(0, titles);
 
-    const [searchQuery, setSearchQuery] = useState("");
-    const [filteredTitles, setFilteredTitles] = useState(titles);
-
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+    const { searchQuery, filteredTracks, searchForASong } = useSearchForASong(titles, isSideMenuOpen);
     const currentTrack = titles[trackDaSongThatPlaying];
 
-    const searchForSongs = (e) => {
-        const search = e.target.value.toLowerCase();
-        setSearchQuery(search);
-        if (search) {
-            setFilteredTitles(
-                titles.filter(
-                    (track) =>
-                        track.title.toLowerCase().includes(search) ||
-                        track.artist.toLowerCase().includes(search)
-                )
-            );
-        } else {
-            setFilteredTitles(titles);
-        }
+    // const searchForSongs = (e) => {
+    //     const search = e.target.value.toLowerCase();
+    //     setSearchQuery(search);
+    //     if (search) {
+    //         setFilteredTitles(
+    //             titles.filter(
+    //                 (track) =>
+    //                     track.title.toLowerCase().includes(search) ||
+    //                     track.artist.toLowerCase().includes(search)
+    //             )
+    //         );
+    //     } else {
+    //         setFilteredTitles(titles);
+    //     }
+    // };
+
+    // Handles logic after track selected
+    const handleTrackSelection = (index) => {
+        const selectedTrack = filteredTracks[index];
+        const originalTrack = titles.findIndex(track => track.id === selectedTrack.id);
+        setTrackDaSongThatPlaying(originalTrack);
+        playZaTrack();
     };
 
-    const handleTrackSelection = (index) => {
-        setTrackDaSongThatPlaying(index);
+    // What happens after side menu is toggled
+    const toggleSideMenu = () => {
+        setIsSideMenuOpen((open) => !open);
     };
 
     return (
         <div className="drawer drawer-end">
-            <input id="my-drawer" type="checkbox" className="drawer-toggle"/>
+            {/*Button To Open Side Menu*/}
+            <input
+                id="my-drawer"
+                type="checkbox"
+                className="drawer-toggle"
+                onChange={toggleSideMenu}
+                checked={isSideMenuOpen}
+            />
             <div className="relative h-screen w-screen overflow-hidden">
                 <div className="fixed top-0 left-0 w-full z-50">
                     <label
@@ -71,13 +88,15 @@ const Music = () => {
                 <img
                     src={currentTrack.image}
                     alt=""
-                    className={`absolute w-full h-full object-cover object-bottom`}
+                    className={`absolute h-screen w-screen bg-full bg-bottom`}
                 />
                 <div className={`absolute inset-0 flex items-center justify-center ${currentTrack.color}`}>
                     <div
-                        className={`w-[90%] md:w-[75%] h-[90%] md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row`}>
+                        className={`w-[90%] md:w-[75%] h-[90%] md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row`}
+                    >
                         <div
-                            className={`w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden order-1 md:order-2`}>
+                            className={`w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden order-1 md:order-2`}
+                        >
                             <img
                                 src={currentTrack.image}
                                 alt=""
@@ -160,6 +179,7 @@ const Music = () => {
                                 </button>
                             </div>
 
+                            {/* Progress Bar */}
                             <div className={`relative w-full h-2 bg-white/20 rounded-full`}>
                                 <div
                                     className={`absolute left-0 top-0 h-full ${currentTrack.bgColor} rounded-full`}
@@ -171,6 +191,7 @@ const Music = () => {
                                 <span>{duration}</span>
                             </div>
 
+                            {/* All the available songs. Not Much but its something ig */}
                             <div className="mt-6">
                                 <h3 className="text-lg font-bold text-white mb-2">Available Songs</h3>
                                 <ul className="space-y-2 max-h-[18rem] overflow-y-auto">
@@ -178,7 +199,8 @@ const Music = () => {
                                         <li
                                             key={track.id}
                                             onClick={() => handleTrackSelection(index)}
-                                            className={`p-2 cursor-pointer rounded-md transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}>
+                                            className={`p-2 cursor-pointer rounded-3xl transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}
+                                        >
                                             <div className="flex items-center space-x-4">
                                                 <img
                                                     src={track.image}
@@ -196,34 +218,49 @@ const Music = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-             {/*Drawer*/}
+            {/* Drawer */}
             <div className="drawer-side">
                 <label htmlFor="my-drawer" className="drawer-overlay"></label>
                 {/*Drawer Content*/}
                 <ul className="menu bg-black/60 backdrop-blur-md min-h-full rounded-l-3xl w-[65%] lg:w-[30%] p-5">
-                    {/*Search for a track*/}
-                    <div className="relative flex items-center space-x-2 bg-black rounded-3xl p-2 my-5">
-                        {/*Search Input*/}
+                    {/*Song List Text*/}
+                    <h1
+                        className="text-3xl  py-5 mx-auto font-bold"
+                        style={{
+                            color: currentTrack.colorCode,
+                            textShadow: `0 0 5px ${currentTrack.colorCode}90, 0 0 10px ${currentTrack.colorCode}60`,
+                        }}
+                    >
+                        Song List
+                    </h1>
+                    {/*Searchbar to search for a track*/}
+                    <div className="relative flex items-center space-x-2 bg-black rounded-3xl p-2 mb-5">
+                        {/*Input for Search. Well u annoyed me ngl*/}
                         <input
                             type="search"
                             value={searchQuery}
-                            onChange={searchForSongs}
-                            className={`flex-grow bg-transparent text-white rounded-3xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200`}
-                            style={{ border: `2px solid ${currentTrack.colorCode}`, boxShadow: `0 0 0 3px ${currentTrack.colorCode}50` }}
+                            onChange={(e) => searchForASong(e.target.value)}
+                            className={`flex-grow bg-transparent text-white rounded-3xl px-4 py-2 focus:outline-none`}
+                            style={{
+                                border: `2px solid ${currentTrack.colorCode}`,
+                                boxShadow: `0 0 0 3px ${currentTrack.colorCode}50`,
+                            }}
                             placeholder="Search for a track"
                         />
                     </div>
 
                     {/*Filtered Tracks*/}
-                    {filteredTitles.map((track, index) => (
+                    {filteredTracks.map((track, index) => (
                         <li
                             key={track.id}
                             onClick={() => handleTrackSelection(index)}
-                            className={`m-1 cursor-pointer rounded-2xl transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}>
+                            className={`m-1 cursor-pointer rounded-2xl transition-colors ${
+                                index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'
+                            }`}
+                        >
                             <div className="flex items-center space-x-4">
                                 <img
                                     src={track.image}
@@ -244,3 +281,4 @@ const Music = () => {
 };
 
 export default Music;
+

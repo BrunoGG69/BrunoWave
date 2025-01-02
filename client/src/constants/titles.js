@@ -2,6 +2,8 @@ import auraAudio from '../assets/music/audio/aura.webm';
 import aura from '../assets/music/image/aura.jpeg';
 import chanakyaAudio from '../assets/music/audio/chanakya.webm';
 import chanakya from '../assets/music/image/chanakya.jpeg';
+import childrenofthesunAudio from '../assets/music/audio/children-of-the-sun.webm';
+import childrenofthesun from '../assets/music/image/childrenofthesun.jpeg';
 import etAudio from '../assets/music/audio/et.webm';
 import et from '../assets/music/image/et.jpeg';
 import empireAudio from '../assets/music/audio/empire.webm';
@@ -12,6 +14,10 @@ import funkuniversoAudio from '../assets/music/audio/funk-universo.mp3';
 import funkuniverso from '../assets/music/image/funk-universo.jpeg';
 import gloryAudio from '../assets/music/audio/glory.webm';
 import glory from '../assets/music/image/glory.jpeg';
+import halloffameAudio from '../assets/music/audio/hall-of-fame.webm';
+import halloffame from '../assets/music/image/hall-of-fame.jpeg';
+import himmatbgmithemesongAudio from '../assets/music/audio/himmat-bgmi-theme-song.webm';
+import himmatbgmithemesong from '../assets/music/image/himmat-bgmi-theme-song.jpeg';
 import indianphonkekiAudio from '../assets/music/audio/indian-phonk-eki.webm';
 import indianphonkeki from '../assets/music/image/indian-phonk-eki.jpeg';
 import mexicanphonkekiAudio from '../assets/music/audio/mexican-phonk-eki.webm';
@@ -22,8 +28,11 @@ import slayAudio from '../assets/music/audio/slay.webm';
 import slay from '../assets/music/image/slay.jpeg';
 import sugarcrash2Audio from '../assets/music/audio/sugarcrash-2.webm';
 import sugarcrash2 from '../assets/music/image/sugarcrash-2.jpeg';
+import synthwaveAudio from '../assets/music/audio/synthwave.webm';
+import synthwave from '../assets/music/image/synthwave.jpeg';
 import tandavAudio from '../assets/music/audio/tandav.webm';
 import tandav from '../assets/music/image/tandav.jpeg';
+
 export const titles = [
   {
     id: 1,
@@ -47,6 +56,16 @@ export const titles = [
   },
   {
     id: 3,
+    audio: childrenofthesunAudio,
+    image: childrenofthesun,
+    title: 'Children Of The Sun',
+    artist: 'Alan Walker',
+    color: 'text-[#49666d]',
+    bgColor: 'bg-[#49666d]',
+    colorCode: '#49666d',
+  },
+  {
+    id: 4,
     audio: etAudio,
     image: et,
     title: 'ET',
@@ -56,7 +75,7 @@ export const titles = [
     colorCode: '#df8fed',
   },
   {
-    id: 4,
+    id: 5,
     audio: empireAudio,
     image: empire,
     title: 'Empire',
@@ -66,7 +85,7 @@ export const titles = [
     colorCode: '#d98531',
   },
   {
-    id: 5,
+    id: 6,
     audio: funkluminarAudio,
     image: funkluminar,
     title: 'Funk Luminar',
@@ -76,7 +95,7 @@ export const titles = [
     colorCode: '#60d5ff',
   },
   {
-    id: 6,
+    id: 7,
     audio: funkuniversoAudio,
     image: funkuniverso,
     title: 'Funk Universo',
@@ -86,7 +105,7 @@ export const titles = [
     colorCode: '#50C878',
   },
   {
-    id: 7,
+    id: 8,
     audio: gloryAudio,
     image: glory,
     title: 'Glory',
@@ -96,7 +115,27 @@ export const titles = [
     colorCode: '#e41b1d',
   },
   {
-    id: 8,
+    id: 9,
+    audio: halloffameAudio,
+    image: halloffame,
+    title: 'Hall of Fame',
+    artist: 'PHARAOH',
+    color: 'text-[#fb5800]',
+    bgColor: 'bg-[#fb5800]',
+    colorCode: '#fb5800',
+  },
+  {
+    id: 10,
+    audio: himmatbgmithemesongAudio,
+    image: himmatbgmithemesong,
+    title: 'Himmat BGMI Theme Song',
+    artist: 'Alan Walker',
+    color: 'text-[#fbd5a4]',
+    bgColor: 'bg-[#fbd5a4]',
+    colorCode: '#fbd5a4',
+  },
+  {
+    id: 11,
     audio: indianphonkekiAudio,
     image: indianphonkeki,
     title: 'Indian Phonk Eki',
@@ -106,7 +145,7 @@ export const titles = [
     colorCode: '#ff8494',
   },
   {
-    id: 9,
+    id: 12,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -116,7 +155,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 10,
+    id: 13,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -126,7 +165,7 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 11,
+    id: 14,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -136,7 +175,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 12,
+    id: 15,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -146,7 +185,17 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 13,
+    id: 16,
+    audio: synthwaveAudio,
+    image: synthwave,
+    title: 'Synthwave',
+    artist: 'NCTS',
+    color: 'text-[#5d85d7]',
+    bgColor: 'bg-[#5d85d7]',
+    colorCode: '#5d85d7',
+  },
+  {
+    id: 17,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
