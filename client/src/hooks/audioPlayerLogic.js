@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useAudioPlayer = (trackNumber, titles) => {
+const useAudioPlayerLogic = (trackNumber, titles) => {
     const [trackDaSongThatPlaying, setTrackDaSongThatPlaying] = useState(trackNumber);
     const [IsItPlayingDaSong, setIsItPlayingDaSong] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -45,7 +45,33 @@ const useAudioPlayer = (trackNumber, titles) => {
         } else {
             audio.pause();
         }
+
+        if ("mediaSession" in navigator) {
+            const track = titles[trackDaSongThatPlaying];
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: track.title,
+                artist: track.artist,
+                artwork: [
+                    {
+                        src: track.image,
+                        sizes: "128x128",
+                        type: "image/jpeg"
+                    },
+                ],
+            });
+            navigator.mediaSession.playbackState = IsItPlayingDaSong ? "playing" : "paused";
+        }
     }, [IsItPlayingDaSong, trackDaSongThatPlaying]);
+
+    useEffect(() => {
+        if ("mediaSession" in navigator) {
+            navigator.mediaSession.setActionHandler("play", playZaTrack);
+            navigator.mediaSession.setActionHandler("pause", pauseZaTrack);
+            navigator.mediaSession.setActionHandler("stop", pauseZaTrack);
+            navigator.mediaSession.setActionHandler("previoustrack", goToPreviousTrack);
+            navigator.mediaSession.setActionHandler("nexttrack", goToNextTrack);
+        }
+    }, []);
 
     const togglePlay = () => {
         const audio = audioRef.current;
@@ -117,4 +143,4 @@ const useAudioPlayer = (trackNumber, titles) => {
     };
 };
 
-export default useAudioPlayer;
+export default useAudioPlayerLogic;
