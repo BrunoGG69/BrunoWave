@@ -18,9 +18,9 @@ firebase_admin.initialize_app(cred, {
 })
 
 # Path to save the files
-song_output_path = "C:/Users/prath/OneDrive/Coding/React Website/BrunoWave-MusicService/client/src/assets/music/audio"
-thumbnail_output_path = "C:/Users/prath/OneDrive/Coding/React Website/BrunoWave-MusicService/client/src/assets/music/image"
-array_output_path = "C:/Users/prath/OneDrive/Coding/React Website/BrunoWave-MusicService/client/src/constants/titles.js"
+song_output_path = os.getenv("SONG_OUTPUT_PATH")
+thumbnail_output_path = os.getenv("THUMBNAIL_OUTPUT_PATH")
+array_output_path = os.getenv("ARRAY_OUTPUT_PATH")
 
 music = {}
 
@@ -40,6 +40,18 @@ def retrieve_data_from_firebase():
 
     print(f"{Fore.GREEN}Data retrieved successfully.")
 
+# Function that sets all the download parameters in the db to 1 to download everything again
+def set_download_to_one():
+    ref = db.reference('/')
+    songs = ref.get()
+
+    for songData, data in songs.items():
+        data['downloadAudio'] = 1
+        data['downloadThumbnail'] = 1
+        ref.child(songData).update(data)
+
+    print(f"{Fore.GREEN}All downloads have been set to 1.")
+
 # Function to download audio files
 def download_audio(songs, output_path):
     audio_extensions = {}
@@ -51,7 +63,7 @@ def download_audio(songs, output_path):
         if data['downloadAudio'] == 1:
             for name, url in songs.items():
                 if url != "not available" and name[0] == songData:
-                    song_title = name[0].lower().replace(" ", "-").replace("+", "plus")
+                    song_title = name[0].lower().replace(' ', '').replace('-', '').replace('+','plus')
                     ydl_opts = {
                         'format': 'bestaudio/best',
                         'outtmpl': os.path.join(output_path, f"{song_title}.%(ext)s"),
@@ -88,7 +100,7 @@ def download_thumbnail(songs, output_path):
                         info_dict = ydl.extract_info(url, download=False)
                         thumbnail_url = info_dict.get('thumbnail', None)
                         if thumbnail_url:
-                            song_title = name[0].replace(" ", "").replace("+", "plus").lower()
+                            song_title = name[0].lower().replace(' ', '').replace('-', '').replace('+','plus')
                             filename = os.path.join(output_path, f"{song_title}.jpeg")
                             urllib.request.urlretrieve(thumbnail_url, filename)
                             print(f"{Fore.GREEN}Thumbnail DOWNLOADED SUCCESSFULLY for {name[0]} by {name[1]}.")
@@ -99,30 +111,30 @@ def download_thumbnail(songs, output_path):
                             print(f"{Fore.RED}No thumbnail found for {name[0]} by {name[1]}.")
                     break
         else:
-            print(f"{Fore.RED}Thumbnail for {songData} is NOT MARKED FOR DOWNLOAD.")
+            print(f"{Fore.CYAN}Thumbnail for {songData} is NOT MARKED FOR DOWNLOAD.")
 
 # Function to create a JS array which stores the information about the songs
-def create_json(songs, output_path, audio_extensions):
+def create_array(songs, output_path, audio_extensions):
     with open(output_path, "w") as js_file:
         for name, _ in songs.items():
             title = name[0]
             song_extension = audio_extensions.get(name, 'webm')
             if title != "Funk Universo":
                 js_file.write(
-                    f"import {title.lower().replace(' ', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('+','plus')}.{song_extension}';\n")
+                    f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.{song_extension}';\n")
             else:
                 js_file.write(
-                    f"import {title.lower().replace(' ', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('+','plus')}.mp3';\n")
+                    f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.mp3';\n")
             js_file.write(
-                f"import {title.lower().replace(' ', '').replace('+','plus')} from '../assets/music/image/{title.lower().replace(' ', '').replace('+','plus')}.jpeg';\n")
+                f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')} from '../assets/music/image/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.jpeg';\n")
 
         js_file.write("export const titles = [\n")
         for i, (name, url) in enumerate(songs.items(), start=1):
             title, artist, color = name
             js_file.write("  {\n")
             js_file.write(f"    id: {i},\n")
-            js_file.write(f"    audio: {title.lower().replace(' ', '').replace('+','plus')}Audio,\n")
-            js_file.write(f"    image: {title.lower().replace(' ', '').replace('+','plus')},\n")
+            js_file.write(f"    audio: {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio,\n")
+            js_file.write(f"    image: {title.lower().replace(' ', '').replace('-', '').replace('+','plus')},\n")
             js_file.write(f"    title: '{title}',\n")
             js_file.write(f"    artist: '{artist}',\n")
             js_file.write(f"    color: 'text-[{color}]',\n")
@@ -134,14 +146,23 @@ def create_json(songs, output_path, audio_extensions):
 
     print(f"{Fore.BLUE}JS array created successfully.")
 
-
+# The main function
 def main():
-    mainScript()
+    confirmation = input("Do you want to add music to the database? (y/n): ") # Ask the user if they want to add music to the database
+
+    # If the user confirms, run the mainScript function
+    if confirmation.lower() == 'y':
+        mainScript()
+    else:
+        print(f"{Fore.RED}No music added to the database.")
+
+    # The retrieval download, and storing values in array
     retrieve_data_from_firebase()
     audio_extensions = download_audio(music, song_output_path)
     download_thumbnail(music, thumbnail_output_path)
-    create_json(music, array_output_path, audio_extensions)
+    create_array(music, array_output_path, audio_extensions)
 
 
 if __name__ == "__main__":
     main()
+    # set_download_to_one()

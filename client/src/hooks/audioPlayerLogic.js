@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 const useAudioPlayerLogic = (trackNumber, titles) => {
     const [trackDaSongThatPlaying, setTrackDaSongThatPlaying] = useState(trackNumber);
     const [IsItPlayingDaSong, setIsItPlayingDaSong] = useState(false);
+    // const [isItShuffled, setIsitShuffled] = useState(false);
+    // const [shufflingOrder, setShufflingOrder] = useState([]);
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState('00:00');
     const [duration, setDuration] = useState('00:00');

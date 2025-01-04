@@ -1,38 +1,41 @@
 import auraAudio from '../assets/music/audio/aura.webm';
 import aura from '../assets/music/image/aura.jpeg';
+import babyjohnbeastmodeAudio from '../assets/music/audio/babyjohnbeastmode.webm';
+import babyjohnbeastmode from '../assets/music/image/babyjohnbeastmode.jpeg';
 import chanakyaAudio from '../assets/music/audio/chanakya.webm';
 import chanakya from '../assets/music/image/chanakya.jpeg';
-import childrenofthesunAudio from '../assets/music/audio/children-of-the-sun.webm';
+import childrenofthesunAudio from '../assets/music/audio/childrenofthesun.webm';
 import childrenofthesun from '../assets/music/image/childrenofthesun.jpeg';
 import etAudio from '../assets/music/audio/et.webm';
 import et from '../assets/music/image/et.jpeg';
 import empireAudio from '../assets/music/audio/empire.webm';
 import empire from '../assets/music/image/empire.jpeg';
-import funkluminarAudio from '../assets/music/audio/funk-luminar.webm';
-import funkluminar from '../assets/music/image/funk-luminar.jpeg';
-import funkuniversoAudio from '../assets/music/audio/funk-universo.mp3';
-import funkuniverso from '../assets/music/image/funk-universo.jpeg';
+import funkestrelasAudio from '../assets/music/audio/funkestrelas.webm';
+import funkestrelas from '../assets/music/image/funkestrelas.jpeg';
+import funkluminarAudio from '../assets/music/audio/funkluminar.webm';
+import funkluminar from '../assets/music/image/funkluminar.jpeg';
+import funkuniversoAudio from '../assets/music/audio/funkuniverso.mp3';
+import funkuniverso from '../assets/music/image/funkuniverso.jpeg';
 import gloryAudio from '../assets/music/audio/glory.webm';
 import glory from '../assets/music/image/glory.jpeg';
-import halloffameAudio from '../assets/music/audio/hall-of-fame.webm';
-import halloffame from '../assets/music/image/hall-of-fame.jpeg';
-import himmatbgmithemesongAudio from '../assets/music/audio/himmat-bgmi-theme-song.webm';
-import himmatbgmithemesong from '../assets/music/image/himmat-bgmi-theme-song.jpeg';
-import indianphonkekiAudio from '../assets/music/audio/indian-phonk-eki.webm';
-import indianphonkeki from '../assets/music/image/indian-phonk-eki.jpeg';
-import mexicanphonkekiAudio from '../assets/music/audio/mexican-phonk-eki.webm';
-import mexicanphonkeki from '../assets/music/image/mexican-phonk-eki.jpeg';
-import obeliyaAudio from '../assets/music/audio/o-beliya.webm';
-import obeliya from '../assets/music/image/o-beliya.jpeg';
+import halloffameAudio from '../assets/music/audio/halloffame.webm';
+import halloffame from '../assets/music/image/halloffame.jpeg';
+import himmatbgmithemesongAudio from '../assets/music/audio/himmatbgmithemesong.webm';
+import himmatbgmithemesong from '../assets/music/image/himmatbgmithemesong.jpeg';
+import indianphonkekiAudio from '../assets/music/audio/indianphonkeki.webm';
+import indianphonkeki from '../assets/music/image/indianphonkeki.jpeg';
+import mexicanphonkekiAudio from '../assets/music/audio/mexicanphonkeki.webm';
+import mexicanphonkeki from '../assets/music/image/mexicanphonkeki.jpeg';
+import obeliyaAudio from '../assets/music/audio/obeliya.webm';
+import obeliya from '../assets/music/image/obeliya.jpeg';
 import slayAudio from '../assets/music/audio/slay.webm';
 import slay from '../assets/music/image/slay.jpeg';
-import sugarcrash2Audio from '../assets/music/audio/sugarcrash-2.webm';
-import sugarcrash2 from '../assets/music/image/sugarcrash-2.jpeg';
+import sugarcrash2Audio from '../assets/music/audio/sugarcrash2.webm';
+import sugarcrash2 from '../assets/music/image/sugarcrash2.jpeg';
 import synthwaveAudio from '../assets/music/audio/synthwave.webm';
 import synthwave from '../assets/music/image/synthwave.jpeg';
 import tandavAudio from '../assets/music/audio/tandav.webm';
 import tandav from '../assets/music/image/tandav.jpeg';
-
 export const titles = [
   {
     id: 1,
@@ -46,6 +49,16 @@ export const titles = [
   },
   {
     id: 2,
+    audio: babyjohnbeastmodeAudio,
+    image: babyjohnbeastmode,
+    title: 'Baby John - Beast Mode',
+    artist: 'Thaman S, Raja Kumari, Adviteeya Vojjala, Ritesh G Rao',
+    color: 'text-[#ffb324]',
+    bgColor: 'bg-[#ffb324]',
+    colorCode: '#ffb324',
+  },
+  {
+    id: 3,
     audio: chanakyaAudio,
     image: chanakya,
     title: 'Chanakya',
@@ -55,27 +68,27 @@ export const titles = [
     colorCode: '#ffdf2c',
   },
   {
-    id: 3,
+    id: 4,
     audio: childrenofthesunAudio,
     image: childrenofthesun,
     title: 'Children Of The Sun',
-    artist: 'Alan Walker',
+    artist: 'Alan Walker, Pritam',
     color: 'text-[#49666d]',
     bgColor: 'bg-[#49666d]',
     colorCode: '#49666d',
   },
   {
-    id: 4,
+    id: 5,
     audio: etAudio,
     image: et,
     title: 'ET',
-    artist: 'QUATTROTEQUE',
+    artist: 'QUATTROTEQUE, Rayyea',
     color: 'text-[#df8fed]',
     bgColor: 'bg-[#df8fed]',
     colorCode: '#df8fed',
   },
   {
-    id: 5,
+    id: 6,
     audio: empireAudio,
     image: empire,
     title: 'Empire',
@@ -85,7 +98,17 @@ export const titles = [
     colorCode: '#d98531',
   },
   {
-    id: 6,
+    id: 7,
+    audio: funkestrelasAudio,
+    image: funkestrelas,
+    title: 'Funk Estrelas',
+    artist: 'Irokz, Yung Zime',
+    color: 'text-[#3dc0e2]',
+    bgColor: 'bg-[#3dc0e2]',
+    colorCode: '#3dc0e2',
+  },
+  {
+    id: 8,
     audio: funkluminarAudio,
     image: funkluminar,
     title: 'Funk Luminar',
@@ -95,7 +118,7 @@ export const titles = [
     colorCode: '#60d5ff',
   },
   {
-    id: 7,
+    id: 9,
     audio: funkuniversoAudio,
     image: funkuniverso,
     title: 'Funk Universo',
@@ -105,7 +128,7 @@ export const titles = [
     colorCode: '#50C878',
   },
   {
-    id: 8,
+    id: 10,
     audio: gloryAudio,
     image: glory,
     title: 'Glory',
@@ -115,7 +138,7 @@ export const titles = [
     colorCode: '#e41b1d',
   },
   {
-    id: 9,
+    id: 11,
     audio: halloffameAudio,
     image: halloffame,
     title: 'Hall of Fame',
@@ -125,7 +148,7 @@ export const titles = [
     colorCode: '#fb5800',
   },
   {
-    id: 10,
+    id: 12,
     audio: himmatbgmithemesongAudio,
     image: himmatbgmithemesong,
     title: 'Himmat BGMI Theme Song',
@@ -135,7 +158,7 @@ export const titles = [
     colorCode: '#fbd5a4',
   },
   {
-    id: 11,
+    id: 13,
     audio: indianphonkekiAudio,
     image: indianphonkeki,
     title: 'Indian Phonk Eki',
@@ -145,7 +168,7 @@ export const titles = [
     colorCode: '#ff8494',
   },
   {
-    id: 12,
+    id: 14,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -155,7 +178,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 13,
+    id: 15,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -165,17 +188,17 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 14,
+    id: 16,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
-    artist: 'Irokz',
+    artist: 'Eternxlkz, Irokz',
     color: 'text-[#f06beb]',
     bgColor: 'bg-[#f06beb]',
     colorCode: '#f06beb',
   },
   {
-    id: 15,
+    id: 17,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -185,7 +208,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 16,
+    id: 18,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -195,7 +218,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 17,
+    id: 19,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',

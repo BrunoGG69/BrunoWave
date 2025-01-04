@@ -1,12 +1,14 @@
 import audioPlayerLogic from "../hooks/audioPlayerLogic.js"; // Importing the logic for audio player
-import { titles } from '../constants/titles.js'; // This stores all the songs with their details
-import { useSearchForASong } from '../hooks/searchForASong.js'; // Importing the search functionality for the songs
-import { useState } from 'react'; // Importing the useState hook
+import {titles} from '../constants/titles.js'; // This stores all the songs with their details
+import {useSearchForASong} from '../hooks/searchForASong.js'; // Importing the search functionality for the songs
+import {useState} from 'react'; // Importing the useState hook
+import {motion} from 'motion/react';
 
 import {
     NextButton,
     PlayPauseButton,
-    PreviousButton, ProgressBar,
+    PreviousButton,
+    ProgressBar,
     SkipBackwardButton,
     SkipForwardButton
 } from "../components/MusicComponents.jsx";
@@ -28,7 +30,7 @@ const Music = () => {
     } = audioPlayerLogic(0, titles);
 
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-    const { searchQuery, filteredTracks, searchForASong } = useSearchForASong(titles, isSideMenuOpen);
+    const {searchQuery, filteredTracks, searchForASong} = useSearchForASong(titles, isSideMenuOpen);
     const currentTrack = titles[trackDaSongThatPlaying];
 
     // const searchForSongs = (e) => {
@@ -70,11 +72,14 @@ const Music = () => {
                 onChange={toggleSideMenu}
                 checked={isSideMenuOpen}
             />
-            <div className="relative h-screen w-screen overflow-hidden">
+            <div className={`relative h-screen w-screen overflow-hidden`}>
                 <div className="fixed top-0 left-0 w-full z-50">
-                    <label
+                    <motion.label
                         htmlFor="my-drawer"
-                        className={`absolute top-4 left-4 flex items-center gap-3 p-3 border-2 border-black bg-[${currentTrack.colorCode}] text-black rounded-full hover:bg-opacity-60 transition-colors drawer-button`}
+                        className={`absolute top-4 left-4 flex items-center gap-3 p-3 border-2 border-black bg-[${currentTrack.colorCode}] text-black rounded-full drawer-button`}
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -91,46 +96,60 @@ const Music = () => {
                             />
                         </svg>
                         <span className="font-medium text-base">More Music</span>
-                    </label>
+                    </motion.label>
                 </div>
 
-                <img
+                <motion.div
+                    key={currentTrack.id}
+                    initial={{ opacity: 0, scale: 1, filter: 'blur(20px)' }}
+                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    className="absolute h-full w-full object-cover "
+                >
+                    <img
                     src={currentTrack.image}
                     alt=""
-                    className={`absolute h-full w-full object-cover object-bottom`}
+                    className={`h-full w-full object-cover object-bottom`}
                 />
+                </motion.div>
                 <div className={`absolute inset-0 flex items-center justify-center ${currentTrack.color}`}>
                     <div
-                        className={`w-[90%] md:w-[75%] h-[90%] md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row`}
+                        className={`w-[90%] md:w-[75%] h-[90%] md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl`}
                     >
-                        <div
+                        <motion.div
+                            key={currentTrack.id}
+                            initial={{ opacity: 0.4, scale: 1, filter: 'blur(20px)' }}
+                            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                            exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
+                            transition={{ duration: 0.8, ease: 'easeInOut' }}
                             className={`w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden order-1 md:order-2`}
                         >
                             <img
                                 src={currentTrack.image}
                                 alt=""
-                                className="absolute h-full w-full object-cover object-center"
+                                className="absolute h-full w-full object-cover object-bottom"
                             />
-                        </div>
+                        </motion.div>
 
                         <div className="w-full md:w-[60%] p-4 md:p-8 flex flex-col justify-center order-2 md:order-1">
                             <h2 className={`${currentTrack.color} text-xl md:text-2xl mb-2`}>{currentTrack.artist}</h2>
-                            <h1 className={`neon-white text-3xl md:text-6xl font-bold mb-4 md:mb-6`}>
+                            <h1 className={`neon-white font-sans  md:text-6xl font-bold mb-4 md:mb-6`}>
                                 {currentTrack.title.toUpperCase()}
                             </h1>
 
                             {/*Buttons*/}
                             <div className="flex justify-center items-center space-x-2 md:space-x-4 mb-4">
-                                <PreviousButton onClick={goToPreviousTrack} color={currentTrack.color} />
-                                <SkipBackwardButton onClick={() => skipTime(-10)} color={currentTrack.color} />
-                                <PlayPauseButton onClick={togglePlay} color={currentTrack.color} isItPlaying={IsItPlayingDaSong} />
-                                <SkipForwardButton onClick={() => skipTime(10)} color={currentTrack.color} />
-                                <NextButton onClick={goToNextTrack} color={currentTrack.color} />
+                                <PreviousButton onClick={goToPreviousTrack} color={currentTrack.color}/>
+                                <SkipBackwardButton onClick={() => skipTime(-10)} color={currentTrack.color}/>
+                                <PlayPauseButton onClick={togglePlay} color={currentTrack.color} isItPlaying={IsItPlayingDaSong}/>
+                                <SkipForwardButton onClick={() => skipTime(10)} color={currentTrack.color}/>
+                                <NextButton onClick={goToNextTrack} color={currentTrack.color}/>
                             </div>
 
                             {/* Progress Bar */}
                             <div className={`relative w-full h-2 bg-white/20 rounded-full`}>
-                                <ProgressBar ProgressOfAudio={progress} color={currentTrack.bgColor} />
+                                <ProgressBar ProgressOfAudio={progress} color={currentTrack.bgColor}/>
                             </div>
                             <div className="flex justify-between text-sm text-white/60 mt-2">
                                 <span>{currentTime}</span>
@@ -227,4 +246,3 @@ const Music = () => {
 };
 
 export default Music;
-

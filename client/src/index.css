@@ -36,36 +36,15 @@
   .padding {
     @apply sm:py-12 py-6;
   }
-  .heading{
-    @apply flex flex-col items-center justify-center pb-10 px-10 transition-all hover:scale-110 hover:brightness-110;
-  }
-  .headingText{
-    @apply text-2xl sm:text-4xl lg:text-6xl font-bold;
-  }
 
   /* Text Utilities */
   /* Neon Effects */
-  .neon-blue {
-    color: #5fc5bc;
-    text-shadow: 0 0 3px #5dc5bc, 0 0 8px #5dc5bc;
-  }
-
-  .neon-orange {
-    color: #fc9170;
-    text-shadow: 0 0 5px #fc9170, 0 0 5px #fc9170;
-  }
-
   .neon-white {
     color: #ffffff;
     text-shadow: 0 0 4px #ffffff, 0 0 7px #ffffff;
   }
 
 
-  .neon-wisteria {
-    color: #CB9CF2;
-    text-shadow: 0 0 5px #CB9CF2, 0 0 8px #CB9CF2;
-  }
-
-  /* Blur Effects */
+    /* Blur Effects */
 }
 

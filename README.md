@@ -1,15 +1,17 @@
+![Alt text](https://cloud-cbc0bs50o-hack-club-bot.vercel.app/0audio_visualiser.svg)
 # BrunoWave -  The Sound You Have Never Heard Before
 
 ### This is a Music Service I am working on. It features a unique and stylish UI. Visit it on https://wave.brunogg.in/play
-
 ## Technologies used:
 - HTML
 - CSS
-- JavaScript
-- Python (For downloading songs)
-- Tailwind CSS
-- Framer Motion (Animation)
+- JavaScript 
+- Tailwind CSS (Styling)
+- Python (Script used to download songs and thumbnail and store the data into a JS array)
+- Framer Motion (Animations)
 - React
+
+### Figma File : https://www.figma.com/design/kAo2e1IcoXenD282544u16/BrunoWave?node-id=3-2&t=ZDi4LpyWm1Byo1ta-1
 
 ## Resources used:
 - https://dev.to/documatic/building-a-music-player-in-react-2aa4 (music player part [some parts of it])
