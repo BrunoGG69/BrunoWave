@@ -24,6 +24,12 @@ import himmatbgmithemesongAudio from '../assets/music/audio/himmatbgmithemesong.
 import himmatbgmithemesong from '../assets/music/image/himmatbgmithemesong.jpeg';
 import indianphonkekiAudio from '../assets/music/audio/indianphonkeki.webm';
 import indianphonkeki from '../assets/music/image/indianphonkeki.jpeg';
+import metamorphosisAudio from '../assets/music/audio/metamorphosis.webm';
+import metamorphosis from '../assets/music/image/metamorphosis.jpeg';
+import metamorphosis2Audio from '../assets/music/audio/metamorphosis2.webm';
+import metamorphosis2 from '../assets/music/image/metamorphosis2.jpeg';
+import metamorphosis3Audio from '../assets/music/audio/metamorphosis3.webm';
+import metamorphosis3 from '../assets/music/image/metamorphosis3.jpeg';
 import mexicanphonkekiAudio from '../assets/music/audio/mexicanphonkeki.webm';
 import mexicanphonkeki from '../assets/music/image/mexicanphonkeki.jpeg';
 import obeliyaAudio from '../assets/music/audio/obeliya.webm';
@@ -169,6 +175,36 @@ export const titles = [
   },
   {
     id: 14,
+    audio: metamorphosisAudio,
+    image: metamorphosis,
+    title: 'Metamorphosis',
+    artist: 'Interworld',
+    color: 'text-[#a8527a]',
+    bgColor: 'bg-[#a8527a]',
+    colorCode: '#a8527a',
+  },
+  {
+    id: 15,
+    audio: metamorphosis2Audio,
+    image: metamorphosis2,
+    title: 'Metamorphosis 2',
+    artist: 'Interworld',
+    color: 'text-[#fdc97a]',
+    bgColor: 'bg-[#fdc97a]',
+    colorCode: '#fdc97a',
+  },
+  {
+    id: 16,
+    audio: metamorphosis3Audio,
+    image: metamorphosis3,
+    title: 'Metamorphosis 3',
+    artist: 'Interworld, Zxcursed, Sadfriendd',
+    color: 'text-[#c74934]',
+    bgColor: 'bg-[#c74934]',
+    colorCode: '#c74934',
+  },
+  {
+    id: 17,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -178,7 +214,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 15,
+    id: 18,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -188,17 +224,17 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 16,
+    id: 19,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
-    artist: 'Eternxlkz, Irokz',
+    artist: 'Eternxlkz',
     color: 'text-[#f06beb]',
     bgColor: 'bg-[#f06beb]',
     colorCode: '#f06beb',
   },
   {
-    id: 17,
+    id: 20,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -208,7 +244,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 18,
+    id: 21,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -218,7 +254,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 19,
+    id: 22,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',

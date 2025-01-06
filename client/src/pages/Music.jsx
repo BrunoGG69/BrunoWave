@@ -1,9 +1,8 @@
 import audioPlayerLogic from "../hooks/audioPlayerLogic.js"; // Importing the logic for audio player
 import {titles} from '../constants/titles.js'; // This stores all the songs with their details
 import {useSearchForASong} from '../hooks/searchForASong.js'; // Importing the search functionality for the songs
-import {useState} from 'react'; // Importing the useState hook
-import {motion} from 'motion/react';
-
+import {useEffect, useRef, useState} from 'react'; // Importing the useState hook
+import {AnimatePresence, motion} from 'motion/react'; // Importing the motion library for animations
 import {
     NextButton,
     PlayPauseButton,
@@ -33,21 +32,49 @@ const Music = () => {
     const {searchQuery, filteredTracks, searchForASong} = useSearchForASong(titles, isSideMenuOpen);
     const currentTrack = titles[trackDaSongThatPlaying];
 
-    // const searchForSongs = (e) => {
-    //     const search = e.target.value.toLowerCase();
-    //     setSearchQuery(search);
-    //     if (search) {
-    //         setFilteredTitles(
-    //             titles.filter(
-    //                 (track) =>
-    //                     track.title.toLowerCase().includes(search) ||
-    //                     track.artist.toLowerCase().includes(search)
-    //             )
-    //         );
-    //     } else {
-    //         setFilteredTitles(titles);
-    //     }
-    // };
+    const modalReference = useRef(null); // Reference for the modal
+
+    const closeModalWindow = () => {
+        const modal = document.getElementById('my_modal_1');
+        if (modal) {
+            modal.close();
+            searchForASong('');
+        }
+    };
+
+    // Handles when someone clicks outside the modal window
+    // It'll close the modal window and reset the search query(Causing issues with track selection outside modal)
+    useEffect(() => {
+        const clicksOutside = (event) => {
+            if (modalReference.current && !modalReference.current.contains(event.target)) {
+                closeModalWindow();
+            }
+        };
+
+        const modal = document.getElementById('my_modal_1');
+        if (modal) {
+            modal.addEventListener('click', clicksOutside);
+        }
+
+        return () => {
+            if (modal) {
+                modal.removeEventListener('click', clicksOutside);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleShortcutKeys = (e) => {
+            if (e.ctrlKey && e.code === 'Space') {
+                document.getElementById('my_modal_1').showModal()
+            }
+        };
+        window.addEventListener('keydown', handleShortcutKeys);
+
+        return () => {
+            window.removeEventListener('keydown', handleShortcutKeys);
+        }
+    }, []);
 
     // Handles logic after track selected
     const handleTrackSelection = (index) => {
@@ -55,6 +82,7 @@ const Music = () => {
         const originalTrack = titles.findIndex(track => track.id === selectedTrack.id);
         setTrackDaSongThatPlaying(originalTrack);
         playZaTrack();
+        searchForASong('');
     };
 
     // What happens after side menu is toggled
@@ -77,9 +105,9 @@ const Music = () => {
                     <motion.label
                         htmlFor="my-drawer"
                         className={`absolute top-4 left-4 flex items-center gap-3 p-3 border-2 border-black bg-[${currentTrack.colorCode}] text-black rounded-full drawer-button`}
-                        whileTap={{ scale: 0.95 }}
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        whileTap={{scale: 0.95}}
+                        whileHover={{scale: 1.1}}
+                        transition={{type: "spring", stiffness: 400, damping: 17}}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -101,34 +129,37 @@ const Music = () => {
 
                 <motion.div
                     key={currentTrack.id}
-                    initial={{ opacity: 0, scale: 1, filter: 'blur(20px)' }}
-                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                    exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    initial={{opacity: 0, scale: 1, filter: 'blur(20px)'}}
+                    animate={{opacity: 1, scale: 1, filter: 'blur(0px)'}}
+                    exit={{opacity: 0, scale: 1.1, filter: 'blur(20px)'}}
+                    transition={{duration: 0.8, ease: 'easeInOut'}}
                     className="absolute h-full w-full object-cover "
                 >
                     <img
-                    src={currentTrack.image}
-                    alt=""
-                    className={`h-full w-full object-cover object-bottom`}
-                />
+                        src={currentTrack.image}
+                        alt=""
+                        className={`h-full w-full object-cover object-center`}
+                    />
+
                 </motion.div>
+
                 <div className={`absolute inset-0 flex items-center justify-center ${currentTrack.color}`}>
+
                     <div
-                        className={`w-[90%] md:w-[75%] h-[90%] md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl`}
+                        className={`w-[90%] md:w-[75%] h-4/5 md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl`}
                     >
                         <motion.div
                             key={currentTrack.id}
-                            initial={{ opacity: 0.4, scale: 1, filter: 'blur(20px)' }}
-                            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                            exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
-                            transition={{ duration: 0.8, ease: 'easeInOut' }}
+                            initial={{opacity: 0.4, scale: 1, filter: 'blur(20px)'}}
+                            animate={{opacity: 1, scale: 1, filter: 'blur(0px)'}}
+                            exit={{opacity: 0, scale: 1.1, filter: 'blur(20px)'}}
+                            transition={{duration: 0.8, ease: 'easeInOut'}}
                             className={`w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden order-1 md:order-2`}
                         >
                             <img
                                 src={currentTrack.image}
                                 alt=""
-                                className="absolute h-full w-full object-cover object-bottom"
+                                className="absolute h-full w-full object-cover object-center"
                             />
                         </motion.div>
 
@@ -158,8 +189,87 @@ const Music = () => {
 
                             {/* All the available songs. Not Much but it is something ig */}
                             <div className="mt-6">
-                                <h3 className="text-lg font-bold text-white mb-2">Available Songs</h3>
-                                <ul className="space-y-2 max-h-[18rem] overflow-y-auto">
+                                <div className="flex py-2 flex-row items-center justify-between">
+                                    <h3 className="text-lg font-bold text-white mr-4">Available Songs</h3>
+                                    <button
+                                        className="flex items-center justify-center bg-transparent text-white rounded-full hover:bg-white/20 p-2 transition-colors"
+                                        onClick={() => document.getElementById('my_modal_1').showModal()}
+                                    >
+                                        <span className="text-xs px-2">Press Ctrl + Space</span>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth="2"
+                                            stroke="currentColor"
+                                            className="w-6 h-6 mr-2"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M21 21l-4.35-4.35m2.35-6.65a7 7 0 11-14 0 7 7 0 0114 0z"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <AnimatePresence>
+                                    <dialog
+                                        id="my_modal_1"
+                                        className="modal bg-black/40 fixed inset-0 flex items-center justify-center "
+                                    >
+                                        <div
+                                            className="modal-box bg-black text-white rounded-3xl w-[90%] md:w-[60%] max-h-[80vh] overflow-hidden shadow-2xl">
+                                            {/* Search Bar */}
+                                            <div
+                                                className="relative flex items-center space-x-2 bg-black rounded-3xl p-2 mb-4"
+                                                ref={modalReference}
+                                            >
+                                                <input
+                                                    type="search"
+                                                    value={searchQuery}
+                                                    onChange={(e) => searchForASong(e.target.value)}
+                                                    className="flex-grow bg-transparent text-white rounded-3xl px-4 py-2 focus:outline-none"
+                                                    style={{
+                                                        border: `2px solid ${currentTrack.colorCode}`,
+                                                        boxShadow: `0 0 0 3px ${currentTrack.colorCode}50`,
+                                                    }}
+                                                    placeholder="Search for a track"
+                                                />
+                                            </div>
+
+                                            {/* Filtered Tracks */}
+                                            <ul className="space-y-3 overflow-y-auto max-h-[60vh] pr-2">
+                                                {filteredTracks.length > 0 ? (
+                                                    filteredTracks.map((track, index) => (
+                                                        <li
+                                                            key={track.id}
+                                                            onClick={() => handleTrackSelection(index)}
+                                                            className={`p-2 flex items-center space-x-4 cursor-pointer rounded-2xl transition-colors ${
+                                                                index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'
+                                                            }`}
+                                                        >
+                                                            <img
+                                                                src={track.image}
+                                                                alt=""
+                                                                className="w-12 h-12 rounded-lg object-cover"
+                                                            />
+                                                            <div className="text-white">
+                                                                <p className="font-bold">{track.title}</p>
+                                                                <p className="text-sm">{track.artist}</p>
+                                                            </div>
+                                                        </li>
+                                                    ))
+                                                ) : (
+                                                    <p className="text-center text-gray-400">No tracks found.</p>
+                                                )}
+                                            </ul>
+
+                                        </div>
+                                    </dialog>
+                                </AnimatePresence>
+
+                                <ul className="space-y-2 max-h-[12rem] md:max-h-[18rem] overflow-y-auto">
                                     {titles.map((track, index) => (
                                         <li
                                             key={track.id}
@@ -246,3 +356,4 @@ const Music = () => {
 };
 
 export default Music;
+

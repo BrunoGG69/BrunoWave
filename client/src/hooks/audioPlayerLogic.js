@@ -20,6 +20,14 @@ const useAudioPlayerLogic = (trackNumber, titles) => {
             setProgress((currentTime / duration) * 100 || 0);
             setCurrentTime(formatTime(currentTime));
             setDuration(formatTime(duration));
+
+            // if ("mediaSession" in navigator) {
+            //     navigator.mediaSession.setPositionState({
+            //         duration: audio.duration,
+            //         playbackRate: audio.playbackRate,
+            //         position: audio.currentTime,
+            //     });
+            // }
         };
 
         const trackEnd = () => {

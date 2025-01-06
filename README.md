@@ -1,4 +1,4 @@
-![Alt text](https://cloud-cbc0bs50o-hack-club-bot.vercel.app/0audio_visualiser.svg)
+A![BrunoWave Logo](https://cloud-cbc0bs50o-hack-club-bot.vercel.app/0audio_visualiser.svg)
 # BrunoWave -  The Sound You Have Never Heard Before
 
 ### This is a Music Service I am working on. It features a unique and stylish UI. Visit it on https://wave.brunogg.in/play
