@@ -26,9 +26,10 @@ def add_music_to_firebase(song, artist, url, color):
     ref.child(song).set({
         'artist': artist,
         'url': url,
-        'color': color,
+        'color': f"#{color}",
         'downloadAudio' : 1,
-        'downloadThumbnail' : 1
+        'downloadThumbnail' : 1,
+        'cropImage' : 1
     })
     print(f'Added song {song} by {artist} to Firebase.')
 
@@ -43,8 +44,8 @@ def mainScript():
     n = int(input('Enter the number of songs you want to add: '))
 
     for i in range(n):
-        song = input('Enter the name of the song: ')
-        artist = input('Enter the name of the artist: ')
+        song = str(input('Enter the name of the song: '))
+        artist = str(input('Enter the name of the artist: '))
         url = input('Enter the URL of the song: ')
         color = input('Enter the color of the song: ')
 

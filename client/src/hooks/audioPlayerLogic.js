@@ -3,11 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 const useAudioPlayerLogic = (trackNumber, titles) => {
     const [trackDaSongThatPlaying, setTrackDaSongThatPlaying] = useState(trackNumber);
     const [IsItPlayingDaSong, setIsItPlayingDaSong] = useState(false);
-    // const [isItShuffled, setIsitShuffled] = useState(false);
-    // const [shufflingOrder, setShufflingOrder] = useState([]);
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState('00:00');
     const [duration, setDuration] = useState('00:00');
+    const [isItMuted, setIsItMuted] = useState(false);
     const audioRef = useRef(null);
 
     useEffect(() => {
@@ -20,14 +19,6 @@ const useAudioPlayerLogic = (trackNumber, titles) => {
             setProgress((currentTime / duration) * 100 || 0);
             setCurrentTime(formatTime(currentTime));
             setDuration(formatTime(duration));
-
-            // if ("mediaSession" in navigator) {
-            //     navigator.mediaSession.setPositionState({
-            //         duration: audio.duration,
-            //         playbackRate: audio.playbackRate,
-            //         position: audio.currentTime,
-            //     });
-            // }
         };
 
         const trackEnd = () => {
@@ -137,12 +128,19 @@ const useAudioPlayerLogic = (trackNumber, titles) => {
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
 
+    const toggleMute = () => {
+        const audio = audioRef.current;
+        audio.muted = !audio.muted;
+        setIsItMuted(!isItMuted);
+    };
+
     return {
         trackDaSongThatPlaying,
         IsItPlayingDaSong,
         progress,
         currentTime,
         duration,
+        isItMuted,
         togglePlay,
         playZaTrack,
         pauseZaTrack,
@@ -150,6 +148,7 @@ const useAudioPlayerLogic = (trackNumber, titles) => {
         goToNextTrack,
         skipTime,
         setTrackDaSongThatPlaying,
+        toggleMute,
     };
 };
 

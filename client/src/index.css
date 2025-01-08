@@ -43,8 +43,9 @@
     color: #ffffff;
     text-shadow: 0 0 4px #ffffff, 0 0 7px #ffffff;
   }
-
-
-    /* Blur Effects */
+    .neon-red {
+    color: #ff0000;
+    text-shadow: 0 0 4px #ff0000, 0 0 7px #ff0000;
+  }
 }
 
