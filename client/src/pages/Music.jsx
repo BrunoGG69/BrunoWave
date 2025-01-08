@@ -18,6 +18,7 @@ const Music = () => {
         trackDaSongThatPlaying,
         setTrackDaSongThatPlaying,
         IsItPlayingDaSong,
+        isItMuted,
         progress,
         currentTime,
         duration,
@@ -25,6 +26,7 @@ const Music = () => {
         goToPreviousTrack,
         goToNextTrack,
         skipTime,
+        toggleMute,
         playZaTrack,
     } = audioPlayerLogic(0, titles);
 
@@ -65,16 +67,52 @@ const Music = () => {
 
     useEffect(() => {
         const handleShortcutKeys = (e) => {
-            if (e.ctrlKey && e.code === 'Space') {
-                document.getElementById('my_modal_1').showModal()
+            const modal = document.getElementById('my_modal_1');
+            if (modal?.open) {
+                return;
+            }
+            if (e.code === 'Tab' || e.code === 'Slash' || (e.ctrlKey && e.code === 'KeyF') || (e.ctrlKey && e.code === 'Space')) {
+                e.preventDefault();
+                document.getElementById('my_modal_1').showModal();
+            } else if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                goToPreviousTrack();
+            } else if (e.code === 'ArrowDown') {
+                e.preventDefault();
+                goToNextTrack();
+            } else if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                skipTime(-5);
+            } else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                skipTime(5);
+            } else if (e.code === 'KeyL') {
+                e.preventDefault();
+                skipTime(10);
+            } else if (e.code === 'KeyJ') {
+                e.preventDefault();
+                skipTime(-10);
+            } else if (e.code === 'KeyM') {
+                e.preventDefault();
+                toggleMute();
+            } else if (e.code === 'KeyK') {
+                e.preventDefault();
+                togglePlay();
+            } else if (e.shiftKey && e.code === 'KeyN') {
+                e.preventDefault();
+                goToNextTrack()
+            } else if (e.shiftKey && e.code === 'KeyP') {
+                e.preventDefault();
+                goToPreviousTrack()
             }
         };
+
         window.addEventListener('keydown', handleShortcutKeys);
 
         return () => {
             window.removeEventListener('keydown', handleShortcutKeys);
-        }
-    }, []);
+        };
+    }, [goToPreviousTrack, goToNextTrack, skipTime, toggleMute, togglePlay]);
 
     // Handles logic after track selected
     const handleTrackSelection = (index) => {
@@ -146,7 +184,7 @@ const Music = () => {
                 <div className={`absolute inset-0 flex items-center justify-center ${currentTrack.color}`}>
 
                     <div
-                        className={`w-[90%] md:w-[75%] h-4/5 md:h-[75%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl`}
+                        className={`w-[85%] h-[85%] sm:w-[75%] md:h-[80%] md:w-[80%] bg-black/30 backdrop-blur-lg rounded-[2rem] overflow-hidden flex flex-col md:flex-row shadow-2xl`}
                     >
                         <motion.div
                             key={currentTrack.id}
@@ -164,18 +202,75 @@ const Music = () => {
                         </motion.div>
 
                         <div className="w-full md:w-[60%] p-4 md:p-8 flex flex-col justify-center order-2 md:order-1">
-                            <h2 className={`${currentTrack.color} text-xl md:text-2xl mb-2`}>{currentTrack.artist}</h2>
-                            <h1 className={`neon-white font-sans  md:text-6xl font-bold mb-4 md:mb-6`}>
-                                {currentTrack.title.toUpperCase()}
-                            </h1>
+                            <div className={`items-center justify-center`}>
+                                <h2 className={`${currentTrack.color} text-xl py-2 md:text-xl`}>
+                                    {currentTrack.artist}
+                                </h2>
+                                <div className="flex items-center justify-start gap-x-3">
+                                    <h1
+                                        className={`font-sans md:text-5xl font-bold mb-2 md:mb-4 ${
+                                            isItMuted ? "neon-red" : "neon-white"
+                                        }`}
+                                    >
+                                        {currentTrack.title.toUpperCase()}
+                                    </h1>
+                                    <motion.button
+                                        onClick={toggleMute}
+                                        className={`${currentTrack.color} hover:text-white transition-colors -translate-y-10`}
+                                        whileTap={{scale: 0.9}}
+                                        whileHover={{scale: 1.1}}
+                                        transition={{type: "spring", stiffness: 400, damping: 17}}
+                                    >
+                                        {isItMuted ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="currentColor"
+                                                 className="bi bi-volume-mute-fill h-6 w-6 md:h-12 md:w-12"
+                                                 viewBox="0 0 16 16">
+                                                <path
+                                                    d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06m7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0"/>
+                                            </svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 fill="currentColor"
+                                                 className="bi bi-volume-up-fill h-6 w-6 md:h-12 md:w-12"
+                                                 viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+                                                <path
+                                                    d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+                                                <path
+                                                    d="M8.707 11.182A4.5 4.5 0 0 0 10.025 8a4.5 4.5 0 0 0-1.318-3.182L8 5.525A3.5 3.5 0 0 1 9.025 8 3.5 3.5 0 0 1 8 10.475zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06"/>
+                                            </svg>
+                                        )}
+                                    </motion.button>
+                                </div>
+                            </div>
+
 
                             {/*Buttons*/}
                             <div className="flex justify-center items-center space-x-2 md:space-x-4 mb-4">
-                                <PreviousButton onClick={goToPreviousTrack} color={currentTrack.color}/>
-                                <SkipBackwardButton onClick={() => skipTime(-10)} color={currentTrack.color}/>
-                                <PlayPauseButton onClick={togglePlay} color={currentTrack.color} isItPlaying={IsItPlayingDaSong}/>
-                                <SkipForwardButton onClick={() => skipTime(10)} color={currentTrack.color}/>
-                                <NextButton onClick={goToNextTrack} color={currentTrack.color}/>
+                                <div className="md:tooltip"
+                                     data-tip="Press ⇧ + 🅿️ to go to the previous track">
+                                    <PreviousButton onClick={goToPreviousTrack} color={currentTrack.color}/>
+                                </div>
+                                <div className={`md:tooltip`}
+                                     data-tip="Press 🅹 to skip 10 seconds and ← to skip 5 seconds">
+                                    <SkipBackwardButton onClick={() => skipTime(-10)} color={currentTrack.color}/>
+                                </div>
+                                <div className={`md:tooltip`}
+                                     data-tip="Press 🅺 to play/pause the track">
+                                    <PlayPauseButton onClick={togglePlay} color={currentTrack.color}
+                                                     isItPlaying={IsItPlayingDaSong}/>
+                                </div>
+                                <div className={`md:tooltip`}
+                                     data-tip="Press 🅹 to skip 10 seconds and ← to skip 5 seconds">
+                                    <SkipForwardButton onClick={() => skipTime(10)} color={currentTrack.color}/>
+                                </div>
+                                <div className="md:tooltip"
+                                     data-tip="Press ⇧ + 🅽 to go to the previous track">
+                                    <NextButton onClick={goToNextTrack} color={currentTrack.color}/>
+                                </div>
+
                             </div>
 
                             {/* Progress Bar */}
@@ -195,7 +290,7 @@ const Music = () => {
                                         className="flex items-center justify-center bg-transparent text-white rounded-full hover:bg-white/20 p-2 transition-colors"
                                         onClick={() => document.getElementById('my_modal_1').showModal()}
                                     >
-                                        <span className="text-xs px-2">Press Ctrl + Space</span>
+                                        <span className="text-xs px-2">Press Tab</span>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -269,23 +364,24 @@ const Music = () => {
                                     </dialog>
                                 </AnimatePresence>
 
-                                <ul className="space-y-2 max-h-[12rem] md:max-h-[18rem] overflow-y-auto">
+                                <ul className="space-y-2 max-h-[12rem] md:max-h-[15rem] overflow-y-auto">
                                     {titles.map((track, index) => (
                                         <li
                                             key={track.id}
                                             onClick={() => handleTrackSelection(index)}
                                             className={`p-2 cursor-pointer rounded-3xl transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}
                                         >
-                                            <div className="flex items-center space-x-4">
+                                            <div className="flex items-center space-x-2 sm:space-x-4">
                                                 <img
                                                     src={track.image}
                                                     alt=""
-                                                    className="w-12 h-12 rounded-lg object-cover"
+                                                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg object-cover"
                                                 />
-                                                <div className={`text-white`}>
-                                                    <p className="font-bold">{track.title}</p>
-                                                    <p className="text-sm">{track.artist}</p>
+                                                <div className="text-white">
+                                                    <p className="font-bold text-sm sm:text-base">{track.title}</p>
+                                                    <p className="text-xs sm:text-sm">{track.artist}</p>
                                                 </div>
+
                                             </div>
                                         </li>
                                     ))}
