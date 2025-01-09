@@ -208,15 +208,13 @@ const Music = () => {
                                 </h2>
                                 <div className="flex items-center justify-start gap-x-3">
                                     <h1
-                                        className={`font-sans md:text-5xl font-bold mb-2 md:mb-4 ${
-                                            isItMuted ? "neon-red" : "neon-white"
-                                        }`}
+                                        className={`font-sans md:text-5xl font-bold mb-2 md:mb-4 neon-white`}
                                     >
                                         {currentTrack.title.toUpperCase()}
                                     </h1>
                                     <motion.button
                                         onClick={toggleMute}
-                                        className={`${currentTrack.color} -translate-y-10 hover:text-white transition-colors`}
+                                        className={`text-white transition-colors`}
                                         whileTap={{scale: 0.9}}
                                         whileHover={{scale: 1.1}}
                                         transition={{type: "spring", stiffness: 400, damping: 17}}
