@@ -44,8 +44,7 @@ const Music = () => {
         }
     };
 
-    // Handles when someone clicks outside the modal window
-    // It'll close the modal window and reset the search query(Causing issues with track selection outside modal)
+    // Handles when someone clicks outside the modal window. It'll close the modal window and reset the search query(Causing issues with track selection outside modal)
     useEffect(() => {
         const clicksOutside = (event) => {
             if (modalReference.current && !modalReference.current.contains(event.target)) {
@@ -65,6 +64,7 @@ const Music = () => {
         };
     }, []);
 
+    // Handles the shortcut keys for the audio player
     useEffect(() => {
         const handleShortcutKeys = (e) => {
             const modal = document.getElementById('my_modal_1');
@@ -338,7 +338,7 @@ const Music = () => {
                                                         <li
                                                             key={track.id}
                                                             onClick={() => handleTrackSelection(index)}
-                                                            className={`p-2 flex items-center space-x-4 cursor-pointer rounded-2xl transition-colors ${
+                                                            className={`p-2 flex items-center space-x-4 cursor-pointer rounded-xl transition-colors ${
                                                                 index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'
                                                             }`}
                                                         >
@@ -367,7 +367,7 @@ const Music = () => {
                                         <li
                                             key={track.id}
                                             onClick={() => handleTrackSelection(index)}
-                                            className={`p-2 cursor-pointer rounded-3xl transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}
+                                            className={`p-2 cursor-pointer rounded-xl transition-colors ${index === trackDaSongThatPlaying ? track.bgColor : 'hover:bg-white/20'}`}
                                         >
                                             <div className="flex items-center space-x-2 sm:space-x-4">
                                                 <img

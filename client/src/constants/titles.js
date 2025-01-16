@@ -2,6 +2,8 @@ import alibilaroseAudio from '../assets/music/audio/alibilarose.webm';
 import alibilarose from '../assets/music/image/alibilarose.jpeg';
 import auraAudio from '../assets/music/audio/aura.webm';
 import aura from '../assets/music/image/aura.jpeg';
+import aura2Audio from '../assets/music/audio/aura2.webm';
+import aura2 from '../assets/music/image/aura2.jpeg';
 import babyjohnbeastmodeAudio from '../assets/music/audio/babyjohnbeastmode.webm';
 import babyjohnbeastmode from '../assets/music/image/babyjohnbeastmode.jpeg';
 import blahAudio from '../assets/music/audio/blah.webm';
@@ -16,11 +18,13 @@ import etAudio from '../assets/music/audio/et.webm';
 import et from '../assets/music/image/et.jpeg';
 import empireAudio from '../assets/music/audio/empire.webm';
 import empire from '../assets/music/image/empire.jpeg';
+import fireAudio from '../assets/music/audio/fire.webm';
+import fire from '../assets/music/image/fire.jpeg';
 import funkestrelasAudio from '../assets/music/audio/funkestrelas.webm';
 import funkestrelas from '../assets/music/image/funkestrelas.jpeg';
 import funkluminarAudio from '../assets/music/audio/funkluminar.webm';
 import funkluminar from '../assets/music/image/funkluminar.jpeg';
-import funkuniversoAudio from '../assets/music/audio/funkuniverso.mp3';
+import funkuniversoAudio from '../assets/music/audio/funkuniverso.webm';
 import funkuniverso from '../assets/music/image/funkuniverso.jpeg';
 import gloryAudio from '../assets/music/audio/glory.webm';
 import glory from '../assets/music/image/glory.jpeg';
@@ -87,6 +91,16 @@ export const titles = [
   },
   {
     id: 3,
+    audio: aura2Audio,
+    image: aura2,
+    title: 'Aura 2',
+    artist: 'Ogryzek',
+    color: 'text-[#81c3fe]',
+    bgColor: 'bg-[#81c3fe]',
+    colorCode: '#81c3fe',
+  },
+  {
+    id: 4,
     audio: babyjohnbeastmodeAudio,
     image: babyjohnbeastmode,
     title: 'Baby John - Beast Mode',
@@ -96,7 +110,7 @@ export const titles = [
     colorCode: '#ffb324',
   },
   {
-    id: 4,
+    id: 5,
     audio: blahAudio,
     image: blah,
     title: 'Blah',
@@ -106,7 +120,7 @@ export const titles = [
     colorCode: '#ff3b4f',
   },
   {
-    id: 5,
+    id: 6,
     audio: canyoufeelmyheartAudio,
     image: canyoufeelmyheart,
     title: 'Can You Feel My Heart',
@@ -116,7 +130,7 @@ export const titles = [
     colorCode: '#a88350',
   },
   {
-    id: 6,
+    id: 7,
     audio: chanakyaAudio,
     image: chanakya,
     title: 'Chanakya',
@@ -126,7 +140,7 @@ export const titles = [
     colorCode: '#ffdf2c',
   },
   {
-    id: 7,
+    id: 8,
     audio: childrenofthesunAudio,
     image: childrenofthesun,
     title: 'Children Of The Sun',
@@ -136,7 +150,7 @@ export const titles = [
     colorCode: '#49666d',
   },
   {
-    id: 8,
+    id: 9,
     audio: etAudio,
     image: et,
     title: 'ET',
@@ -146,7 +160,7 @@ export const titles = [
     colorCode: '#df8fed',
   },
   {
-    id: 9,
+    id: 10,
     audio: empireAudio,
     image: empire,
     title: 'Empire',
@@ -156,7 +170,17 @@ export const titles = [
     colorCode: '#d98531',
   },
   {
-    id: 10,
+    id: 11,
+    audio: fireAudio,
+    image: fire,
+    title: 'Fire',
+    artist: 'Alan Walker, YUQI, JVKE, (G)L-DLE',
+    color: 'text-[#fbc594]',
+    bgColor: 'bg-[#fbc594]',
+    colorCode: '#fbc594',
+  },
+  {
+    id: 12,
     audio: funkestrelasAudio,
     image: funkestrelas,
     title: 'Funk Estrelas',
@@ -166,7 +190,7 @@ export const titles = [
     colorCode: '#3dc0e2',
   },
   {
-    id: 11,
+    id: 13,
     audio: funkluminarAudio,
     image: funkluminar,
     title: 'Funk Luminar',
@@ -176,7 +200,7 @@ export const titles = [
     colorCode: '#60d5ff',
   },
   {
-    id: 12,
+    id: 14,
     audio: funkuniversoAudio,
     image: funkuniverso,
     title: 'Funk Universo',
@@ -186,7 +210,7 @@ export const titles = [
     colorCode: '#50C878',
   },
   {
-    id: 13,
+    id: 15,
     audio: gloryAudio,
     image: glory,
     title: 'Glory',
@@ -196,7 +220,7 @@ export const titles = [
     colorCode: '#e41b1d',
   },
   {
-    id: 14,
+    id: 16,
     audio: halloffameAudio,
     image: halloffame,
     title: 'Hall of Fame',
@@ -206,7 +230,7 @@ export const titles = [
     colorCode: '#fb5800',
   },
   {
-    id: 15,
+    id: 17,
     audio: himmatbgmithemesongAudio,
     image: himmatbgmithemesong,
     title: 'Himmat BGMI Theme Song',
@@ -216,7 +240,7 @@ export const titles = [
     colorCode: '#fbd5a4',
   },
   {
-    id: 16,
+    id: 18,
     audio: indianphonkekiAudio,
     image: indianphonkeki,
     title: 'Indian Phonk Eki',
@@ -226,7 +250,7 @@ export const titles = [
     colorCode: '#ff8494',
   },
   {
-    id: 17,
+    id: 19,
     audio: metamorphosisAudio,
     image: metamorphosis,
     title: 'Metamorphosis',
@@ -236,7 +260,7 @@ export const titles = [
     colorCode: '#a8527a',
   },
   {
-    id: 18,
+    id: 20,
     audio: metamorphosis2Audio,
     image: metamorphosis2,
     title: 'Metamorphosis 2',
@@ -246,7 +270,7 @@ export const titles = [
     colorCode: '#fdc97a',
   },
   {
-    id: 19,
+    id: 21,
     audio: metamorphosis3Audio,
     image: metamorphosis3,
     title: 'Metamorphosis 3',
@@ -256,7 +280,7 @@ export const titles = [
     colorCode: '#c74934',
   },
   {
-    id: 20,
+    id: 22,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -266,7 +290,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 21,
+    id: 23,
     audio: murderplotAudio,
     image: murderplot,
     title: 'Murder Plot',
@@ -276,7 +300,7 @@ export const titles = [
     colorCode: '#d0a2fb',
   },
   {
-    id: 22,
+    id: 24,
     audio: murderinmymindAudio,
     image: murderinmymind,
     title: 'Murder in my mind',
@@ -286,7 +310,7 @@ export const titles = [
     colorCode: '#800673',
   },
   {
-    id: 23,
+    id: 25,
     audio: nevertrustAudio,
     image: nevertrust,
     title: 'Never Trust',
@@ -296,7 +320,7 @@ export const titles = [
     colorCode: '#eb5c29',
   },
   {
-    id: 24,
+    id: 26,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -306,7 +330,7 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 25,
+    id: 27,
     audio: scopinAudio,
     image: scopin,
     title: 'Scopin',
@@ -316,7 +340,7 @@ export const titles = [
     colorCode: '#f6a59c',
   },
   {
-    id: 26,
+    id: 28,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -326,7 +350,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 27,
+    id: 29,
     audio: slayjerseyremixAudio,
     image: slayjerseyremix,
     title: 'Slay - Jersey Remix',
@@ -336,7 +360,7 @@ export const titles = [
     colorCode: '#e875fd',
   },
   {
-    id: 28,
+    id: 30,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -346,7 +370,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 29,
+    id: 31,
     audio: superpowerAudio,
     image: superpower,
     title: 'Superpower',
@@ -356,7 +380,7 @@ export const titles = [
     colorCode: '#f1df64',
   },
   {
-    id: 30,
+    id: 32,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -366,7 +390,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 31,
+    id: 33,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
@@ -376,7 +400,7 @@ export const titles = [
     colorCode: '#fab23f',
   },
   {
-    id: 32,
+    id: 34,
     audio: thatssotrueAudio,
     image: thatssotrue,
     title: 'Thats So True',
@@ -386,7 +410,7 @@ export const titles = [
     colorCode: '#7d7b7d',
   },
   {
-    id: 33,
+    id: 35,
     audio: victoryanthemAudio,
     image: victoryanthem,
     title: 'Victory Anthem',

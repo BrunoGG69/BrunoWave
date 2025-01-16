@@ -72,7 +72,9 @@ def download_audio(songs, output_path):
                         'outtmpl': os.path.join(output_path, f"{song_title}.%(ext)s"),
                         'quiet': False,
                         'noplaylist': True,
+                        'cookiefile': 'cookies.txt'
                     }
+
                     print(f"{Fore.GREEN}Downloading audio: {name[0]} by {name[1]}")
                     with YoutubeDL(ydl_opts) as ydl:
                         info_dict = ydl.extract_info(url, download=True)
@@ -148,12 +150,8 @@ def create_array(songs, output_path, audio_extensions):
         for name, _ in songs.items():
             title = name[0]
             song_extension = audio_extensions.get(name, 'webm')
-            if title != "Funk Universo":
-                js_file.write(
-                    f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.{song_extension}';\n")
-            else:
-                js_file.write(
-                    f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.mp3';\n")
+            js_file.write(
+                f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')}Audio from '../assets/music/audio/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.{song_extension}';\n")
             js_file.write(
                 f"import {title.lower().replace(' ', '').replace('-', '').replace('+','plus')} from '../assets/music/image/{title.lower().replace(' ', '').replace('-', '').replace('+','plus')}.jpeg';\n")
 
