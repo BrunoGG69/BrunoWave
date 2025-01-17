@@ -52,6 +52,8 @@ import obeliyaAudio from '../assets/music/audio/obeliya.webm';
 import obeliya from '../assets/music/image/obeliya.jpeg';
 import scopinAudio from '../assets/music/audio/scopin.webm';
 import scopin from '../assets/music/image/scopin.jpeg';
+import sigmaboyAudio from '../assets/music/audio/sigmaboy.webm';
+import sigmaboy from '../assets/music/image/sigmaboy.jpeg';
 import slayAudio from '../assets/music/audio/slay.webm';
 import slay from '../assets/music/image/slay.jpeg';
 import slayjerseyremixAudio from '../assets/music/audio/slayjerseyremix.webm';
@@ -341,6 +343,16 @@ export const titles = [
   },
   {
     id: 28,
+    audio: sigmaboyAudio,
+    image: sigmaboy,
+    title: 'Sigma Boy',
+    artist: 'Betsy, Maria Yankovskaya',
+    color: 'text-[#bebcfd]',
+    bgColor: 'bg-[#bebcfd]',
+    colorCode: '#bebcfd',
+  },
+  {
+    id: 29,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -350,7 +362,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 29,
+    id: 30,
     audio: slayjerseyremixAudio,
     image: slayjerseyremix,
     title: 'Slay - Jersey Remix',
@@ -360,7 +372,7 @@ export const titles = [
     colorCode: '#e875fd',
   },
   {
-    id: 30,
+    id: 31,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -370,7 +382,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 31,
+    id: 32,
     audio: superpowerAudio,
     image: superpower,
     title: 'Superpower',
@@ -380,7 +392,7 @@ export const titles = [
     colorCode: '#f1df64',
   },
   {
-    id: 32,
+    id: 33,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -390,7 +402,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 33,
+    id: 34,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
@@ -400,7 +412,7 @@ export const titles = [
     colorCode: '#fab23f',
   },
   {
-    id: 34,
+    id: 35,
     audio: thatssotrueAudio,
     image: thatssotrue,
     title: 'Thats So True',
@@ -410,7 +422,7 @@ export const titles = [
     colorCode: '#7d7b7d',
   },
   {
-    id: 35,
+    id: 36,
     audio: victoryanthemAudio,
     image: victoryanthem,
     title: 'Victory Anthem',
