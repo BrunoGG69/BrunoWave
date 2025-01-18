@@ -22,6 +22,8 @@ import fireAudio from '../assets/music/audio/fire.webm';
 import fire from '../assets/music/image/fire.jpeg';
 import funkestrelasAudio from '../assets/music/audio/funkestrelas.webm';
 import funkestrelas from '../assets/music/image/funkestrelas.jpeg';
+import funkfuturaAudio from '../assets/music/audio/funkfutura.webm';
+import funkfutura from '../assets/music/image/funkfutura.jpeg';
 import funkluminarAudio from '../assets/music/audio/funkluminar.webm';
 import funkluminar from '../assets/music/image/funkluminar.jpeg';
 import funkuniversoAudio from '../assets/music/audio/funkuniverso.webm';
@@ -193,6 +195,16 @@ export const titles = [
   },
   {
     id: 13,
+    audio: funkfuturaAudio,
+    image: funkfutura,
+    title: 'Funk Futura',
+    artist: 'Irokz, ANIZYZ',
+    color: 'text-[#a2a2e6]',
+    bgColor: 'bg-[#a2a2e6]',
+    colorCode: '#a2a2e6',
+  },
+  {
+    id: 14,
     audio: funkluminarAudio,
     image: funkluminar,
     title: 'Funk Luminar',
@@ -202,7 +214,7 @@ export const titles = [
     colorCode: '#60d5ff',
   },
   {
-    id: 14,
+    id: 15,
     audio: funkuniversoAudio,
     image: funkuniverso,
     title: 'Funk Universo',
@@ -212,7 +224,7 @@ export const titles = [
     colorCode: '#50C878',
   },
   {
-    id: 15,
+    id: 16,
     audio: gloryAudio,
     image: glory,
     title: 'Glory',
@@ -222,7 +234,7 @@ export const titles = [
     colorCode: '#e41b1d',
   },
   {
-    id: 16,
+    id: 17,
     audio: halloffameAudio,
     image: halloffame,
     title: 'Hall of Fame',
@@ -232,7 +244,7 @@ export const titles = [
     colorCode: '#fb5800',
   },
   {
-    id: 17,
+    id: 18,
     audio: himmatbgmithemesongAudio,
     image: himmatbgmithemesong,
     title: 'Himmat BGMI Theme Song',
@@ -242,7 +254,7 @@ export const titles = [
     colorCode: '#fbd5a4',
   },
   {
-    id: 18,
+    id: 19,
     audio: indianphonkekiAudio,
     image: indianphonkeki,
     title: 'Indian Phonk Eki',
@@ -252,7 +264,7 @@ export const titles = [
     colorCode: '#ff8494',
   },
   {
-    id: 19,
+    id: 20,
     audio: metamorphosisAudio,
     image: metamorphosis,
     title: 'Metamorphosis',
@@ -262,7 +274,7 @@ export const titles = [
     colorCode: '#a8527a',
   },
   {
-    id: 20,
+    id: 21,
     audio: metamorphosis2Audio,
     image: metamorphosis2,
     title: 'Metamorphosis 2',
@@ -272,7 +284,7 @@ export const titles = [
     colorCode: '#fdc97a',
   },
   {
-    id: 21,
+    id: 22,
     audio: metamorphosis3Audio,
     image: metamorphosis3,
     title: 'Metamorphosis 3',
@@ -282,7 +294,7 @@ export const titles = [
     colorCode: '#c74934',
   },
   {
-    id: 22,
+    id: 23,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -292,7 +304,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 23,
+    id: 24,
     audio: murderplotAudio,
     image: murderplot,
     title: 'Murder Plot',
@@ -302,7 +314,7 @@ export const titles = [
     colorCode: '#d0a2fb',
   },
   {
-    id: 24,
+    id: 25,
     audio: murderinmymindAudio,
     image: murderinmymind,
     title: 'Murder in my mind',
@@ -312,7 +324,7 @@ export const titles = [
     colorCode: '#800673',
   },
   {
-    id: 25,
+    id: 26,
     audio: nevertrustAudio,
     image: nevertrust,
     title: 'Never Trust',
@@ -322,7 +334,7 @@ export const titles = [
     colorCode: '#eb5c29',
   },
   {
-    id: 26,
+    id: 27,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -332,7 +344,7 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 27,
+    id: 28,
     audio: scopinAudio,
     image: scopin,
     title: 'Scopin',
@@ -342,7 +354,7 @@ export const titles = [
     colorCode: '#f6a59c',
   },
   {
-    id: 28,
+    id: 29,
     audio: sigmaboyAudio,
     image: sigmaboy,
     title: 'Sigma Boy',
@@ -352,7 +364,7 @@ export const titles = [
     colorCode: '#bebcfd',
   },
   {
-    id: 29,
+    id: 30,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -362,7 +374,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 30,
+    id: 31,
     audio: slayjerseyremixAudio,
     image: slayjerseyremix,
     title: 'Slay - Jersey Remix',
@@ -372,7 +384,7 @@ export const titles = [
     colorCode: '#e875fd',
   },
   {
-    id: 31,
+    id: 32,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -382,7 +394,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 32,
+    id: 33,
     audio: superpowerAudio,
     image: superpower,
     title: 'Superpower',
@@ -392,7 +404,7 @@ export const titles = [
     colorCode: '#f1df64',
   },
   {
-    id: 33,
+    id: 34,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -402,7 +414,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 34,
+    id: 35,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
@@ -412,7 +424,7 @@ export const titles = [
     colorCode: '#fab23f',
   },
   {
-    id: 35,
+    id: 36,
     audio: thatssotrueAudio,
     image: thatssotrue,
     title: 'Thats So True',
@@ -422,7 +434,7 @@ export const titles = [
     colorCode: '#7d7b7d',
   },
   {
-    id: 36,
+    id: 37,
     audio: victoryanthemAudio,
     image: victoryanthem,
     title: 'Victory Anthem',
