@@ -286,9 +286,9 @@ const Music = () => {
                                     <h3 className="text-lg font-bold text-white mr-4">Available Songs</h3>
                                     <button
                                         className="flex items-center justify-center bg-transparent text-white rounded-full hover:bg-white/20 p-2 transition-colors"
-
+                                        onClick={() => document.getElementById('my_modal_1').showModal()}
                                     >
-                                        <span className="text-xs px-2">Press Tab</span>onClick={() => document.getElementById('my_modal_1').showModal()}
+                                        <span className="text-xs px-2">Press Tab</span>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
