@@ -38,6 +38,8 @@ import himmatbgmithemesongAudio from '../assets/music/audio/himmatbgmithemesong.
 import himmatbgmithemesong from '../assets/music/image/himmatbgmithemesong.jpeg';
 import indianphonkekiAudio from '../assets/music/audio/indianphonkeki.webm';
 import indianphonkeki from '../assets/music/image/indianphonkeki.jpeg';
+import matushkaultrafunkAudio from '../assets/music/audio/matushkaultrafunk.webm';
+import matushkaultrafunk from '../assets/music/image/matushkaultrafunk.jpeg';
 import metamorphosisAudio from '../assets/music/audio/metamorphosis.webm';
 import metamorphosis from '../assets/music/image/metamorphosis.jpeg';
 import metamorphosis2Audio from '../assets/music/audio/metamorphosis2.webm';
@@ -277,6 +279,16 @@ export const titles = [
   },
   {
     id: 21,
+    audio: matushkaultrafunkAudio,
+    image: matushkaultrafunk,
+    title: 'Matushka Ultrafunk',
+    artist: 'satirin',
+    color: 'text-[#d437cb]',
+    bgColor: 'bg-[#d437cb]',
+    colorCode: '#d437cb',
+  },
+  {
+    id: 22,
     audio: metamorphosisAudio,
     image: metamorphosis,
     title: 'Metamorphosis',
@@ -286,7 +298,7 @@ export const titles = [
     colorCode: '#a8527a',
   },
   {
-    id: 22,
+    id: 23,
     audio: metamorphosis2Audio,
     image: metamorphosis2,
     title: 'Metamorphosis 2',
@@ -296,7 +308,7 @@ export const titles = [
     colorCode: '#fdc97a',
   },
   {
-    id: 23,
+    id: 24,
     audio: metamorphosis3Audio,
     image: metamorphosis3,
     title: 'Metamorphosis 3',
@@ -306,7 +318,7 @@ export const titles = [
     colorCode: '#c74934',
   },
   {
-    id: 24,
+    id: 25,
     audio: mexicanphonkekiAudio,
     image: mexicanphonkeki,
     title: 'Mexican Phonk Eki',
@@ -316,7 +328,7 @@ export const titles = [
     colorCode: '#eb5013',
   },
   {
-    id: 25,
+    id: 26,
     audio: murderplotAudio,
     image: murderplot,
     title: 'Murder Plot',
@@ -326,7 +338,7 @@ export const titles = [
     colorCode: '#d0a2fb',
   },
   {
-    id: 26,
+    id: 27,
     audio: murderinmymindAudio,
     image: murderinmymind,
     title: 'Murder in my mind',
@@ -336,7 +348,7 @@ export const titles = [
     colorCode: '#800673',
   },
   {
-    id: 27,
+    id: 28,
     audio: nevertrustAudio,
     image: nevertrust,
     title: 'Never Trust',
@@ -346,7 +358,7 @@ export const titles = [
     colorCode: '#eb5c29',
   },
   {
-    id: 28,
+    id: 29,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -356,7 +368,7 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 29,
+    id: 30,
     audio: scopinAudio,
     image: scopin,
     title: 'Scopin',
@@ -366,7 +378,7 @@ export const titles = [
     colorCode: '#f6a59c',
   },
   {
-    id: 30,
+    id: 31,
     audio: sigmaboyAudio,
     image: sigmaboy,
     title: 'Sigma Boy',
@@ -376,7 +388,7 @@ export const titles = [
     colorCode: '#bebcfd',
   },
   {
-    id: 31,
+    id: 32,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -386,7 +398,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 32,
+    id: 33,
     audio: slayjerseyremixAudio,
     image: slayjerseyremix,
     title: 'Slay - Jersey Remix',
@@ -396,7 +408,7 @@ export const titles = [
     colorCode: '#e875fd',
   },
   {
-    id: 33,
+    id: 34,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -406,7 +418,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 34,
+    id: 35,
     audio: superpowerAudio,
     image: superpower,
     title: 'Superpower',
@@ -416,7 +428,7 @@ export const titles = [
     colorCode: '#f1df64',
   },
   {
-    id: 35,
+    id: 36,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -426,7 +438,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 36,
+    id: 37,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
@@ -436,7 +448,7 @@ export const titles = [
     colorCode: '#fab23f',
   },
   {
-    id: 37,
+    id: 38,
     audio: thatssotrueAudio,
     image: thatssotrue,
     title: 'Thats So True',
@@ -446,7 +458,7 @@ export const titles = [
     colorCode: '#7d7b7d',
   },
   {
-    id: 38,
+    id: 39,
     audio: victoryanthemAudio,
     image: victoryanthem,
     title: 'Victory Anthem',
