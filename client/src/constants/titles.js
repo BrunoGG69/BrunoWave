@@ -50,6 +50,8 @@ import metamorphosis3Audio from '../assets/music/audio/metamorphosis3.webm';
 import metamorphosis3 from '../assets/music/image/metamorphosis3.jpeg';
 import mexicanphonkekiAudio from '../assets/music/audio/mexicanphonkeki.webm';
 import mexicanphonkeki from '../assets/music/image/mexicanphonkeki.jpeg';
+import mortalsfunkremixAudio from '../assets/music/audio/mortalsfunkremix.webm';
+import mortalsfunkremix from '../assets/music/image/mortalsfunkremix.jpeg';
 import murderplotAudio from '../assets/music/audio/murderplot.webm';
 import murderplot from '../assets/music/image/murderplot.jpeg';
 import murderinmymindAudio from '../assets/music/audio/murderinmymind.webm';
@@ -341,6 +343,16 @@ export const titles = [
   },
   {
     id: 27,
+    audio: mortalsfunkremixAudio,
+    image: mortalsfunkremix,
+    title: 'Mortals Funk Remix',
+    artist: 'LXNGVX, Warriyo',
+    color: 'text-[#1f8de6]',
+    bgColor: 'bg-[#1f8de6]',
+    colorCode: '#1f8de6',
+  },
+  {
+    id: 28,
     audio: murderplotAudio,
     image: murderplot,
     title: 'Murder Plot',
@@ -350,7 +362,7 @@ export const titles = [
     colorCode: '#d0a2fb',
   },
   {
-    id: 28,
+    id: 29,
     audio: murderinmymindAudio,
     image: murderinmymind,
     title: 'Murder in my mind',
@@ -360,7 +372,7 @@ export const titles = [
     colorCode: '#800673',
   },
   {
-    id: 29,
+    id: 30,
     audio: nevertrustAudio,
     image: nevertrust,
     title: 'Never Trust',
@@ -370,7 +382,7 @@ export const titles = [
     colorCode: '#eb5c29',
   },
   {
-    id: 30,
+    id: 31,
     audio: obeliyaAudio,
     image: obeliya,
     title: 'O Beliya',
@@ -380,7 +392,7 @@ export const titles = [
     colorCode: '#d4a47d',
   },
   {
-    id: 31,
+    id: 32,
     audio: scopinAudio,
     image: scopin,
     title: 'Scopin',
@@ -390,7 +402,7 @@ export const titles = [
     colorCode: '#f6a59c',
   },
   {
-    id: 32,
+    id: 33,
     audio: sigmaboyAudio,
     image: sigmaboy,
     title: 'Sigma Boy',
@@ -400,7 +412,7 @@ export const titles = [
     colorCode: '#bebcfd',
   },
   {
-    id: 33,
+    id: 34,
     audio: slayAudio,
     image: slay,
     title: 'Slay',
@@ -410,7 +422,7 @@ export const titles = [
     colorCode: '#f06beb',
   },
   {
-    id: 34,
+    id: 35,
     audio: slayjerseyremixAudio,
     image: slayjerseyremix,
     title: 'Slay - Jersey Remix',
@@ -420,7 +432,7 @@ export const titles = [
     colorCode: '#e875fd',
   },
   {
-    id: 35,
+    id: 36,
     audio: sugarcrash2Audio,
     image: sugarcrash2,
     title: 'SugarCrash 2',
@@ -430,7 +442,7 @@ export const titles = [
     colorCode: '#fad3ca',
   },
   {
-    id: 36,
+    id: 37,
     audio: superpowerAudio,
     image: superpower,
     title: 'Superpower',
@@ -440,7 +452,7 @@ export const titles = [
     colorCode: '#f1df64',
   },
   {
-    id: 37,
+    id: 38,
     audio: synthwaveAudio,
     image: synthwave,
     title: 'Synthwave',
@@ -450,7 +462,7 @@ export const titles = [
     colorCode: '#5d85d7',
   },
   {
-    id: 38,
+    id: 39,
     audio: tandavAudio,
     image: tandav,
     title: 'Tandav',
@@ -460,7 +472,7 @@ export const titles = [
     colorCode: '#fab23f',
   },
   {
-    id: 39,
+    id: 40,
     audio: thatssotrueAudio,
     image: thatssotrue,
     title: 'Thats So True',
@@ -470,7 +482,7 @@ export const titles = [
     colorCode: '#7d7b7d',
   },
   {
-    id: 40,
+    id: 41,
     audio: victoryanthemAudio,
     image: victoryanthem,
     title: 'Victory Anthem',
