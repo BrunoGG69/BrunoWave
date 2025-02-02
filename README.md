@@ -1,11 +1,11 @@
-![BrunoWave Logo](https://cloud-cbc0bs50o-hack-club-bot.vercel.app/0audio_visualiser.svg)
-# BrunoWave -  The Sound You Have Never Heard Before
+![Wavify Logo](https://cloud-cbc0bs50o-hack-club-bot.vercel.app/0audio_visualiser.svg)
+# Wavify -  The Sound You Have Never Heard Before
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-### This is a **Music Service** that I am working on. It features a unique and modern UI and also allows you to put in your own songs using the python script. Visit the website [here](https://wave.brunogg.in/play)
+### This is a **Music Service** that I am working on. It features a unique and modern UI and also allows you to put in your own songs using the python script. Visit the website [here](https://www.wavify.in)
 
-## [BrunoWave Figma File](https://www.figma.com/design/kAo2e1IcoXenD282544u16/BrunoWave?node-id=3-2&t=ZDi4LpyWm1Byo1ta-1)
+## [Wavify Figma File](https://www.figma.com/design/kAo2e1IcoXenD282544u16/BrunoWave?node-id=3-2&t=ZDi4LpyWm1Byo1ta-1)
 ## Technologies used:
 - HTML
 - CSS
@@ -27,10 +27,10 @@
 - Sync with the OS / Browser
 - Modern UI
 ----------------------------------------------------------------------------------------------------------------------------
-## How to run the project locally (I recommend visiting it [here](https://wave.brunogg.in/play))
+## How to run the project locally (I recommend visiting it [here](https://www.wavify.in)
 1. Clone the repository
     ```bash
-    git clone https://github.com/BrunoGG69/BrunoWave.git
+    git clone https://github.com/BrunoGG69/Wavify.git
     ```
 2. Change the directory
     ```bash
@@ -65,8 +65,8 @@
     python script.py
     ```
 8. Follow the instructions and you are done
-
-## BrunoWave © 2024 by Prathamesh Prabhakar is licensed under CC BY-NC-ND 4.0 
+----------------------------------------------------------------------------------------------------------------------------
+## <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://www.wavify.in">Wavify</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://brunogg.in">Prathamesh Prabhakar</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
 
 This project development was **Aided** by AI tools, specifically:
 
