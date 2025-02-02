@@ -36,8 +36,8 @@ const Music = () => {
 
     const modalReference = useRef(null); // Reference for the modal
 
-    const closeModalWindow = () => {
-        const modal = document.getElementById('my_modal_1');
+    const closeModalWindow = () => {        const modal = document.getElementById('my_modal_1');
+
         if (modal) {
             modal.close();
             searchForASong('');
@@ -64,56 +64,45 @@ const Music = () => {
         };
     }, []);
 
-    // Handles the shortcut keys for the audio player
+
     useEffect(() => {
         const handleShortcutKeys = (e) => {
             const modal = document.getElementById('my_modal_1');
-            if (modal?.open) {
-                return;
-            }
-            if (e.code === 'Tab' || e.code === 'Slash' || (e.ctrlKey && e.code === 'KeyF') || (e.ctrlKey && e.code === 'Space')) {
+            if (modal?.open) return;
+            const keyActions = {
+                'Tab': () => document.getElementById('my_modal_1').showModal(),
+                'Slash': () => document.getElementById('my_modal_1').showModal(),
+                'ArrowUp': goToPreviousTrack,
+                'ArrowDown': goToNextTrack,
+                'ArrowLeft': () => skipTime(-5),
+                'ArrowRight': () => skipTime(5),
+                'KeyL': () => skipTime(10),
+                'KeyJ': () => skipTime(-10),
+                'KeyM': toggleMute,
+                'KeyK': togglePlay,
+            };
+            const shiftKeyActions = {
+                'KeyN': goToNextTrack,
+                'KeyP': goToPreviousTrack,
+            };
+            const ctrlKeyActions = {
+                'KeyF': () => document.getElementById('my_modal_1').showModal(),
+                'Space': () => document.getElementById('my_modal_1').showModal(),
+            };
+            if (e.shiftKey && shiftKeyActions[e.code]) {
                 e.preventDefault();
-                document.getElementById('my_modal_1').showModal();
-            } else if (e.code === 'ArrowUp') {
+                shiftKeyActions[e.code]();
+            } else if (e.ctrlKey && ctrlKeyActions[e.code]) {
                 e.preventDefault();
-                goToPreviousTrack();
-            } else if (e.code === 'ArrowDown') {
+                ctrlKeyActions[e.code]();
+            } else if (keyActions[e.code]) {
                 e.preventDefault();
-                goToNextTrack();
-            } else if (e.code === 'ArrowLeft') {
-                e.preventDefault();
-                skipTime(-5);
-            } else if (e.code === 'ArrowRight') {
-                e.preventDefault();
-                skipTime(5);
-            } else if (e.code === 'KeyL') {
-                e.preventDefault();
-                skipTime(10);
-            } else if (e.code === 'KeyJ') {
-                e.preventDefault();
-                skipTime(-10);
-            } else if (e.code === 'KeyM') {
-                e.preventDefault();
-                toggleMute();
-            } else if (e.code === 'KeyK') {
-                e.preventDefault();
-                togglePlay();
-            } else if (e.shiftKey && e.code === 'KeyN') {
-                e.preventDefault();
-                goToNextTrack()
-            } else if (e.shiftKey && e.code === 'KeyP') {
-                e.preventDefault();
-                goToPreviousTrack()
+                keyActions[e.code]();
             }
         };
-
         window.addEventListener('keydown', handleShortcutKeys);
-
-        return () => {
-            window.removeEventListener('keydown', handleShortcutKeys);
-        };
+        return () => window.removeEventListener('keydown', handleShortcutKeys);
     }, [goToPreviousTrack, goToNextTrack, skipTime, toggleMute, togglePlay]);
-
     // Handles logic after track selected
     const handleTrackSelection = (index) => {
         const selectedTrack = filteredTracks[index];
