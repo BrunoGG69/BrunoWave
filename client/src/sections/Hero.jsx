@@ -10,8 +10,8 @@ const Hero = () => {
             />
 
             <div className="relative z-10 text-white text-center">
-                <h1 className="text-[300px] font-bold font-pacifico">Wavify</h1>
-                <p className="mt-4 text-lg">Your music, your vibe.</p>
+                <h1 className="text-[300px] font-bold font-pacifico ">Wavify</h1>
+                <p className="text-3xl font-poppins font-semibold">Your music, your vibe.</p>
                 <div className="mt-6 space-x-4">
                 </div>
             </div>
