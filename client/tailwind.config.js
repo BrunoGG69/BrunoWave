@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         'saved-by-zero': ['"Saved by Zero"', 'sans-serif'],
+        pacifico: ['Pacifico', 'cursive'],
       },
     },
   },
